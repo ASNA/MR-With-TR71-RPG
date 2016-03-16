@@ -1,6 +1,8 @@
-##Map two addresses with ASNA Mobile RPG
+##Using IBM i's TR 7.1 full free format ILE RPG with ASNA Mobile RPG
 
-This example shows how to use Mobile RPG's (MR) DDSList control to display a navigable list. The DDSList control provides a commong mobile idiom that lists data and lets users make selections from that list. 
+This example shows how to use Mobile RPG's (MR) DDSList control to display a navigable list. The DDSList control provides a commong mobile idiom that lists data and lets users make selections from that list. It also shows how to navigate from one panel to another and how to use the DDSGMap control to display a google map. 
+
+Most of all, though, this MR app is an exercise in using IBM i's Tech Refresh 7.1 full freeformat ILE RPG. I am quite impressed with how much better RPG can be when written using the full freeformat (shouldn't we just call it the FFF syntax?).   
 
 >The RPG code for this project is in the RPG folder.  
 
