@@ -1,0 +1,33 @@
+﻿Using System
+Using System.Collections
+Using System.ComponentModel
+Using System.Data
+Using System.Drawing
+Using System.Web
+Using System.Web.SessionState
+Using System.Web.UI
+Using System.Web.UI.WebControls
+Using System.Web.UI.HtmlControls
+
+DclNameSpace ASNA.Monarch.Support
+
+BegClass iResumeFullScreen Partial(*Yes) Extends(System.Web.UI.Page)
+
+    BegSr OnPreRender Access(*protected) Modifier(*overrides)
+        DclSrParm Name(e) Type(System.EventArgs)
+
+        DclFld script Type(*String)
+		script = @"
+var previousSession = '';
+var sid = localStorage.getItem('ASNA_iOS_Last_ASP_SID');
+if (sid) {
+    previousSession = '(S(' + sid + '))/';
+}
+window.location = '"
+		
+		script = script + Request.ApplicationPath.TrimEnd(o'/') + "/' + previousSession + 'Monarch/Resumer.aspx';"
+		Page.ClientScript.RegisterStartupScript(*typeof(iResumeFullScreen), "_Redirect", script, *true)
+        Session.Abandon()
+    EndSr
+     
+EndClass

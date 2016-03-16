@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Microsoft IE stuff  -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <title>Expired ASNA Mobile RPG Session</title>
+        <link rel="stylesheet" type="text/css" href="../Themes/Current/Styles/Theme.css" />
+    </head>
+    <body>
+        <p class="importantLabel">
+            Your ASNA Mobile RPG Session has expired. 
+            <br />
+            <br />
+            Please <a id= "ReStartLink" href="javascript:ReStart();">re-start</a> the application.
+        </p>
+    </body>
+    <script type="text/javascript" >
+        function ReStart() {
+            if (typeof (window.navigator.standalone) === 'boolean' && window.navigator.standalone === true) {
+                window.open("/Default.aspx"); /* iOS App running in Full-screen mode, do not open Safari. */
+            }
+            else {
+                window.location = "/Default.aspx"; /* Note: this will not work with Developer webserver, but will work under production */
+            }
+        }
+    </script>  
+</html>

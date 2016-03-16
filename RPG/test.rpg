@@ -1,0 +1,22 @@
+        Hello
+
+        Ctl-OPT Option(*srcstmt) Dftactgrp(*No) ActGrp('rpmobile');
+
+        Dcl-F smplst WORKSTN Infds(infds)
+                             Handler('MOBILERPG')
+                             SFile(CSTSBF:CSTRRN);
+
+        Dcl-F CustomerL2 Disk(*ext) Usage(*Input) Keyed
+                         Rename(RCMMASTER:RCUSTL2);
+
+        Dcl-F CustomerL1 Disk(*ext) Usage(*Input) Keyed
+                         Rename(RCMMASTER:RCUSTL1);
+
+        Dcl-DS CustL2Key LikeRec(RCUSTL2:*Key);
+
+        Dcl-DS MyKey Qualified;
+            KeyOne Like(CMName);
+            KeyTwo Like(CMCustNo);
+        End-DS;
+
+        CustL2Key

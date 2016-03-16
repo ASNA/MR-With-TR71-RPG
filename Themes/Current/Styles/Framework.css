@@ -1,0 +1,1231 @@
+﻿/* =Core
+-------------------------------------------------------------- */
+/* Master Page styles for 'Normal' DDS records */
+.CenPH {
+    
+}
+/* Master Page styles for 'WINDOW' DDS records*/
+.FKeyWinPH {
+    visibility: hidden;
+    width: 0px;
+    margin-left: -400px;
+}
+.CenWinPH { }
+.MsgWinPH { }
+
+/* Common Master Page styles */
+
+@media screen { /* Defaults (highest resolution - i.e. Desktop, New iPad, Asus Transformer  ) */
+
+    .DdsCharField_Link {
+        color: #336699;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .DdsSflMsgField_OutputOnly {
+        font-family: 'Segoe UI' , Arial;
+        font-weight: bold;
+        font-size: 10pt;
+        font-style: normal;
+        color: #CC3300;
+    }
+    .DdsSflMsgField {
+        color: #CC0000;
+        font-weight: bold;
+    }
+
+    /* DDS WINDOW Records */
+    .DdsInlinePopUpBackground {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 50; 
+        background-color: gray; 
+        opacity: 0.70; /* Firefox, Chrome */
+        filter: alpha(opacity=70); /* IE */
+    }
+    .DdsInlinePopUpTable {
+        position: absolute;
+        background-color: #99CCFF;
+        overflow: hidden;
+        z-index :100;
+    }
+    .DdsInlinePopUpContent {
+        width: 100%;
+    }
+    .DdsInlinePopUpTitle {
+        width: 100%;
+        height: 20px;
+        color: white;
+        font-weight: bold;
+        background-color: #3366CC;
+    }
+    .SubmitWait {
+        background-color:  LightGray;     
+        opacity: 0.70; /* Firefox, Chrome */
+        filter: alpha(opacity=70); /* IE */
+    }
+    .SubmitWait_2Seconds {
+        background-image: url('../Images/SubmitWait.gif');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+	
+    /* DdsSwitch */
+    .ToggleSwitchLabel {
+  	    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	    display:inline-block;
+	    height: 2em;
+	    width: 7em;
+    }
+
+    .ToggleSwitchLabelFocus {
+        text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+    }   
+
+    .ToggleSwitch {
+      border: 0.1em solid #444;
+      display: inline-block;
+      width: 5em;
+      height: 2em;
+      vertical-align:middle;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 1.1em;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .ToggleSwitch-wrapper > * {
+      display: block;
+      float: left;
+      height: 2em;
+      line-height: 2em;
+      -webkit-box-shadow: inset 0 0.2em 0.4em rgba(0, 0, 0, 0.75);
+      box-shadow: inset 0 0.2em 0.4em rgba(0, 0, 0, 0.75);
+    }
+
+    .ToggleSwitch > .ToggleSwitch-wrapper {
+      display: block;
+      width: 8em;
+      height: 2em;
+      color: #fff;
+      overflow: hidden;
+      text-shadow: 0 -0.1em 0 rgba(0, 0, 0, 0.8);
+      filter: dropshadow(color=#000000, offx=0, offy=-1);
+      border-radius: 1em;
+    }
+
+    .ToggleSwitch-wrapper > .ToggleSwitch-on {
+      background: #0b0;
+      width: 3em;
+      padding-left: 1em;
+      border-radius: 0.8em 0 0 0.8em;
+    }
+
+    .ToggleSwitch-wrapper > .ToggleSwitch-off {
+      background: #b00;
+      width: 3em;
+      padding-right: 1em;
+      text-align: right;
+      border-radius: 0 0.8em 0.8em 0;
+    }    
+
+    .ToggleSwitch-wrapper > .ToggleSwitch-handle {
+      background: #eee;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eee), color-stop(100%, #aaa)); /* Chrome, Safari4+ */
+      background: -webkit-linear-gradient(top, #eee 0%, #aaa 100%); /* Chrome10+, Safari5.1+ */
+      background: linear-gradient(top, #eee 0%, #aaa 100%);
+      width: 2em;
+      margin-left: -5em;
+      -webkit-box-shadow: 0 0.15em 0.4em #000;
+      box-shadow: 0 0.15em 0.4em #000;
+      border: 0.1em solid #999;
+      border-radius: 0.99em;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .ToggleSwitchSwipeRight {
+	    margin-left: 0
+    }
+
+    .ToggleSwitchSwipeLeft {
+	    margin-left: -3em;
+    }
+
+    .ToggleSwitchRenderAsCheckbox {
+      display: inline-block;
+      width: 5em;
+      height: 2em;
+      vertical-align:middle;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .ToggleSwitchRenderAsCheckboxWrapper {
+      display: block;
+      float: left;
+      height: 2em;
+      line-height: 2em;
+    }
+
+    .ToggleSwitchRenderAsCheckboxCheckbox {
+    }
+	
+    /* ASNA 5250 Terminal */
+    
+    #AsnaTermFacade {
+        position: relative; 
+        top: 0px; 
+        left: 0px;        
+        margin: 0;
+        border: 0;
+        padding: 0;
+        background-color: black;
+        overflow: hidden;
+    }
+    
+    #AsnaTerm5250     {
+        position: absolute;
+        left:0;
+        top:0;
+        margin: 0;
+        border: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+        
+    #AsnaTermCursor {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        margin: 0;
+        border: 0;
+        padding: 0;
+        font-family: monospace;
+        vertical-align: middle;
+        background-color: #d8d8d8;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+        z-index: 200;
+    }
+
+    .AsnaTermFldTouchableMask {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        margin: 0;
+        border: 0;
+        padding: 0;
+        -webkit-appearance: none;
+        font-size: 0.5px;        
+        opacity: 0.2;
+        filter: alpha(opacity=20);  /* IE */
+        background: none;
+    }
+
+    #AsnaTermTextSelection {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        margin: 0;
+        border: 0;
+        padding: 0;
+        background-color: white; 
+        opacity: 0.5; /* Firefox, Chrome */ 
+        filter: alpha(opacity=50);  /* IE */
+    }
+    #AsnaTermErrMsg {
+        font-family: 'Segoe UI', Arial;
+        color: red;
+    }
+    pre { font-family: Consolas; } /* Consolas font is similar to IBMi Terminal Font */     
+
+    #AsnaTermSettingsDialog {
+        position:absolute;
+        background-color:#444444;
+        color: #fff;        
+        font-size: 18px;	    
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+        width:100%;
+        display: none;
+    }
+    
+    #AsnaTermSettingsSlider {
+        position:absolute;
+        z-Index:600;
+        width:48px;
+        height:15px;
+        display: none;
+        pointer-events: none;
+    }
+    
+    .AsnaTermSliderRow {
+        padding:0px;
+        margin:0px;
+        width:48px;
+        height:6px;
+        display:block;
+    }
+    
+    #AsnaTermSettingsOptions {
+        padding-top: 15px;
+        height: 50%;
+    }
+    
+    .AsnaTermSettingsLabel {
+        margin-left: 20px;
+        display:inline-block;
+        vertical-align:middle;
+        height: 2em;
+        padding-bottom:11px;
+    }
+    
+    #AsnaTermSettingsNotes {
+        margin-left: 20px;        
+        font-size: 16px;	    
+        padding-top: 10px;
+    }
+
+    #AsnaTermPREF_Colors {
+        display:inline-block;
+        vertical-align:top;
+        margin-left: 40px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        width:80px;
+        height:35px;
+        font-size: 18px;
+        border-radius: 5px;
+        color: #fff;
+        background-color:#3366CC;
+        -webkit-appearance: button;
+        cursor: pointer;
+    }
+    
+    #AsnaTermIbmKeyPad {
+        position : absolute;
+        padding: 0;
+        margin:0;
+        width: 700px;
+        height : 49px;
+        background-color : #A5A5A6;
+        -webkit-transition-property: opacity;
+        -webkit-transition-duration: 1000ms;
+        opacity : 0;
+        display: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    #AsnaTermStatusBar {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 0px;
+        overflow: hidden;
+        display: none;
+        cursor: pointer;
+    }
+
+    .AsnaTermIbmBigButton {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        width: 120px;
+        height: 32px;
+        font-size: 18px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 2px rgba(0,0,0,0.25);
+        text-shadow: 0px 0px 8px black;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap;
+        color: #fff;
+        display: none;
+    }
+
+    .AsnaTermIbmBigButtonMobile {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        width: 160px;
+        height: 50px;
+        font-size: 20px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 2px rgba(0,0,0,0.25);
+        text-shadow: 0px 0px 8px black;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap;
+        color: #fff;
+        display: none;
+    }
+
+    .AsnaTermGoColorButton {
+        background-color: rgb(0,104,0);
+    }
+
+    .AsnaTermGoColorButtonMobile {
+        background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.6, rgb(0,104,0)),
+            color-stop(0.3, rgb(0,192,0))
+        );
+    }
+
+    .AsnaTermWarningColorButton {
+        background-color:rgb(233, 118, 32);
+    }
+
+    .AsnaTermWarningColorButtonMobile {
+        background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.3, rgb(23,84,163)),
+            color-stop(0.6, rgb(110,175,250))
+        );
+    }
+    
+    .AsnaTermFKeyHotSpot {
+        position: absolute;
+        padding: 0;
+        width: 40px;
+        height: 28px;
+        font-size: 18px;
+        border-radius: 5px;
+        color: #fff;
+        background-color:#3366CC;
+        display: none;
+        cursor: pointer;
+    }
+
+    .AsnaTermFKeyHotSpotMobile {
+        position: absolute;
+        padding: 0;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 2px rgba(0,0,0,0.25);
+        text-shadow: 0px 0px 8px black;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap;
+        color: #fff;
+        background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.3, rgb(23,84,163)),
+            color-stop(0.6, rgb(110,175,250))
+        );
+        display: none;
+    }
+
+
+    #AsnaTermIbmKeyPad .arrows {
+        fill: #fff; 
+    }
+
+    .AsnaTermIbmKeyPadButton {
+        position: absolute;
+        padding: 0;
+        left: 2px;
+        top: 4px;
+        width: 80px;
+        height: 40px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 2px rgba(0,0,0,0.25);
+        text-shadow: 0px 0px 8px black;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap;
+        color: #fff;
+        background-color: rgb(23,84,163);
+        cursor: pointer;
+    }
+
+    .AsnaTermIbmKeyPadButtonMobile {
+        position: absolute;
+        padding: 0;
+        left: 2px;
+        top: 4px;
+        width: 80px;
+        height: 40px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 2px rgba(0,0,0,0.25);
+        text-shadow: 0px 0px 8px black;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap;
+        color: #fff;
+        background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.3, rgb(23,84,163)),
+            color-stop(0.6, rgb(110,175,250))
+        );
+    }
+
+    #AsnaTermIbmUserDefKeysPopup {
+        padding: 0;
+        background-color: rgb(224,224,224);
+        display: none;
+        position: absolute;    
+        opacity : 1.0;
+        border-radius: 5px;
+    }
+
+    #AsnaTermIbmUserDefKeysPopup .arrows
+    {
+        fill: #000000; 
+    }
+
+    .AsnaTermIbmPopupSelButton, .AsnaTermIbmPopupSelButtonMobile {
+        position: absolute;    
+        padding: 0;    
+        width: 80px;
+        height: 40px;
+        background-color: rgb(255,255,255);
+        border-width: 1px;
+        border-color: rgb(224,224,224);
+        font-size: 0.8em;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap;
+        border-radius: 8px;
+        overflow:visible;
+        cursor: pointer;
+    }
+
+    .AsnaTermIbmPopupSelActiveButton {
+        color: #fff;
+        background-color: #0033CC;
+        overflow:visible;
+        cursor: pointer;
+    }
+
+    .AsnaTermIbmActionKeyMapTooltip {
+        padding: 2px;
+        border: 1px solid black;
+        color: black;
+        background-color: whitesmoke;
+        font-size: small;
+        display: block;
+        border-radius: 3px;
+    }
+
+    #AsnaTermIbmFKeysPopup {
+        background-color: rgb(224,224,224);
+        display: none;
+        position: absolute;    
+        opacity : 1.0;
+        border-radius: 5px;
+    }
+
+    #AsnaTermIbmSpecialKeysPopup {
+        background-color: rgb(224,224,224);
+        display: none;
+        position: absolute;    
+        opacity : 1.0;
+        border-radius: 5px;
+    }
+
+    .AsnaToggleSwitch {
+      border: 0.1em solid #444;
+      display: inline-block;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      width: 5em;
+      height: 2em;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 1.1em;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .AsnaToggleSwitch-wrapper > * {
+      display: block;
+      float: left;
+      height: 2em;
+      line-height: 2em;
+      -webkit-box-shadow: inset 0 0.2em 0.4em rgba(0, 0, 0, 0.75);
+      box-shadow: inset 0 0.2em 0.4em rgba(0, 0, 0, 0.75);
+    }
+    
+    .AsnaToggleSwitch > .AsnaToggleSwitch-wrapper {
+      display: block;
+      width: 8em;
+      height: 2em;
+      color: #fff;
+      overflow: hidden;
+      text-shadow: 0 -0.1em 0 rgba(0, 0, 0, 0.8);
+      filter: dropshadow(color=#000000, offx=0, offy=-1);
+      border-radius: 1em;
+    }
+
+    .AsnaToggleSwitch-wrapper > .AsnaToggleSwitch-on {
+      background: #0b0;
+      width: 3em;
+      padding-left: 1em;
+      border-radius: 0.8em 0 0 0.8em;
+    }
+
+    .AsnaToggleSwitch-wrapper > .AsnaToggleSwitch-off {
+      background: #b00;
+      width: 3em;
+      padding-right: 1em;
+      text-align: right;
+      border-radius: 0 0.8em 0.8em 0;
+    }    
+
+    .AsnaToggleSwitch-wrapper > .AsnaToggleSwitch-handle {
+      background: #eee;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eee), color-stop(100%, #aaa)); /* Chrome, Safari4+ */
+      background: -webkit-linear-gradient(top, #eee 0%, #aaa 100%); /* Chrome10+, Safari5.1+ */
+      background: linear-gradient(top, #eee 0%, #aaa 100%);
+      width: 2em;
+      margin-left: -5em;
+      -webkit-box-shadow: 0 0.15em 0.4em #000;
+      box-shadow: 0 0.15em 0.4em #000;
+      border: 0.1em solid #999;
+      border-radius: 0.99em;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    
+    .AsnaToggleSwitchSwipeRight {
+        margin-left: 0
+    }
+    
+    .AsnaToggleSwitchSwipeLeft {
+        margin-left: -3em;
+    }
+
+    .AsnaTermColors       { position: absolute; color: black; background-color: white; left: 20px; top:20px; width:600px; height:395px; z-Index:1000; display: none; }
+    .AsnaTermColorsMobile { position: absolute; color: black; background-color: white; left: 20px; top:20px; width:825px; height:600px; z-Index:1000; display: none;         font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif; font-size:16px;}
+
+    .AsnaTermColorWheel       { position: absolute; left:350px; top:33px; cursor: pointer; }
+    .AsnaTermColorWheelMobile { position: absolute; left:350px; top:33px; }
+
+    .AsnaTermWhiteHex { position: absolute; left:393px; top:246px; cursor: pointer; }
+    .AsnaTermWhiteHexMobile  { position: absolute; left:434px; top:444px; }
+
+    .AsnaTermGrayWheel { position: absolute; left:434px; top:246px; cursor: pointer; }
+    .AsnaTermGrayWheelMobile { position: absolute; left:514px; top:448px; }
+
+    .AsnaTermBlackHex { position: absolute; left:499px; top:246px; cursor: pointer; }
+    .AsnaTermBlackHexMobile { position: absolute; left:644px; top:442px; }
+
+    .AsnaTermColorSample { text-align:center; font-size:medium; float:left; width:23px; height:23px; }
+    .AsnaTermColorSampleMobile { text-align:center; font-size:medium; float:left; width:23px; height:28px; }
+
+    .AsnaTermColorPreText { padding:3px 0px 0px 0px; margin:0; }
+    .AsnaTermCOLOR_Subtitle { font-weight: bold; color: blue; line-height: 1.5em; padding: 0px 0px 0px 0px; }
+    .AsnaTermCOLOR_Label { font-weight:normal;  color: black; line-height: 1.5em; padding: 4px 0px 0px 4px; }
+
+    .AsnaTermCOLOR_SELECTION { position: absolute; top:0px; left:5px; }
+    .AsnaTermCOLOR_ATTR {float:left; } .AsnaTermCOLOR_ATTR_LIST {list-style-type: none; padding: 0px 3px 0px 3px; }
+    .AsnaTermCOLOR_SAMPLE {float:left;} .AsnaTermCOLOR_SAMPLE_LIST {list-style-type: none; padding: 0px 3px 0px 3px;}
+    .AsnaTermCOLOR_COLOR {float:left;} .AsnaTermCOLOR_COLOR_LIST {list-style-type: none; padding: 0px 3px 0px 3px;}
+
+    .AsnaTermCOLOR_INPUT_HEX { width:70px; padding: 0px 0px 3px 0px; line-height: 1.2em; height:16px; }
+    .AsnaTermCOLOR_INPUT_HEXMobile { width:70px; padding: 0px 0px 3px 0px; line-height: 1.2em; height:23px; }
+
+    .AsnaTermCOLOR_BKCOLOR {float:left;} .AsnaTermCOLOR_BKCOLOR_LIST { list-style-type: none; padding: 0px 3px 0px 3px;}
+    .AsnaTermCOLOR_OTHER {float:left; } .AsnaTermCOLOR_OTHER_LIST {list-style-type: none; padding: 0px 3px 0px 3px; }	
+
+    .AsnaTermCloseIcon { position: absolute; left:576px; top:3px; cursor: pointer; }
+    .AsnaTermCloseIconMobile { position: absolute; left: 776px; top:7px; }
+
+    .AsnaTermColorLuminance { position: absolute; left: 368px; top: 300px; }
+    .AsnaTermColorLuminanceMobile { position: absolute; left: 170px; top: 466px; }
+
+    .AsnaTermColorLumSlider { padding:0; width:150px; }
+    .AsnaTermColorLumSliderMobile { padding:0; width:150px; }
+
+    .AsnaTermColorApply { position: absolute; left:342px; top:350px; width:120px; height:35px; border-radius: 5px; -webkit-appearance: button; cursor: pointer; }
+    .AsnaTermColorApplyMobile { position: absolute; left:488px; top:550px; width:150px; font-size:medium; border-radius: 3px; height:35px; border-radius: 3px; -webkit-appearance: button; }
+
+    .AsnaTermColorDefaults { position: absolute; left:468px; top:350px; width:120px; height:35px; border-radius: 5px; -webkit-appearance: button; cursor: pointer; }
+    .AsnaTermColorDefaultsMobile { position: absolute; left:655px; top:550px; width:150px; font-size:medium; height:35px; border-radius: 3px; -webkit-appearance:button; }
+
+    /* Terminal Color defaults */
+    .AsnaTermDEF_GREEN      { color: #00FF00; }     .AsnaTermDEF_BKGD { color: #000000; }
+    .AsnaTermDEF_BLUE       { color: #0099FF; }
+    .AsnaTermDEF_RED        { color: #FF0000; }
+    .AsnaTermDEF_WHITE      { color: #FFFFFF; }
+    .AsnaTermDEF_TURQUOISE  { color: #AFEEEE; }
+    .AsnaTermDEF_YELLOW     { color: #FFFF00; }
+    .AsnaTermDEF_PINK       { color: #FF1493; }
+    .AsnaTermDEF_CURSOR     { color: #FFFFFF; }
+    .AsnaTermDEF_SEL        { color: #FFFFFF; }
+        
+    /* DDS Character Fields */
+    .DdsCharField {
+        padding: 0px;
+        margin: 0px;
+        font-family: 'Segoe UI' , Arial;
+        font-weight: bold;
+        border: 1px solid #c0c0c0;
+        color: black;
+    }
+    .DdsCharField_Error {
+        height: 20px;
+        padding: 0px;
+        margin: 0px;
+        font-family: 'Segoe UI', Arial;
+        font-weight: bold;
+        border: 1px solid #c0c0c0;
+        color: #FFFFFF; 
+        background-color: #CC0000;
+    }
+    .DdsCharField_OutputOnly {
+        height: 20px;
+        font-family: 'Segoe UI', Arial;
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .DdsCharField_Right {
+        height: 20px;
+        padding: 0px;
+        margin: 0px;
+        font-family: 'Segoe UI' , Arial;
+        font-weight: bold;
+        border: 1px solid #c0c0c0;
+        color: black;
+        text-align: right;
+    }
+    .DdsCharField_Right_Error {
+        height: 20px;
+        padding: 0px;
+        margin: 0px;
+        font-family: 'Segoe UI', Arial;
+        font-weight: bold;
+        border: 1px solid #c0c0c0;
+        color: #FFFFFF; 
+        background-color: #CC0000;
+        text-align: right;
+    }
+    .DdsCharField_Right_OutputOnly {
+        height: 20px;
+        font-family: 'Segoe UI', Arial;
+        font-weight: bold;
+        color: #666666;
+        text-align: right;
+    }
+
+    /* DDS  Constant Fields */
+    .DdsConstant  {
+        color: #4F4F4F; 
+        font-family: 'Lucida Sans Typewriter'; 
+    }
+    .DdsConstant_Right  {
+        color: #4F4F4F; 
+        font-family: 
+        'Lucida Sans Typewriter'; 
+        text-align: right; 
+    }
+    
+    .DdsConstant_Title {
+        color: rgb(0,51,204); 
+        font-size:25px;
+        position: absolute; 
+        left: 372px; 
+        top: 0px;
+    }
+    
+    .DdsConstant_Subfile_Heading, .DdsDecField_Heading_OutputOnly, .DdsCharField_Heading_OutputOnly {
+        color: rgb(204,0,51); 
+        font-size:20px;
+    }
+
+    /* DDS Date/Decimal Date/Time Fields */
+    .DdsDateField, 
+    .DdsDateField_Right, 
+    .DdsDateField_Error, 
+    .DdsDateField_OutputOnly,
+    .DdsDecDateField,
+    .DdsDecDateField_Right,
+    .DdsDecDateField_Error
+    .DdsDecDateField_OutputOnly,
+    .DdsDateFieldNonAbsolute, 
+    .DdsDateFieldNonAbsolute_Right, 
+    .DdsDateFieldNonAbsolute_Error, 
+    .DdsDateFieldNonAbsolute_OutputOnly,
+    .DdsDecDateFieldNonAbsolute, 
+    .DdsDecDateFieldNonAbsolute_Right, 
+    .DdsDecDateFieldNonAbsolute_Error, 
+    .DdsDecDateFieldNonAbsolute_OutputOnly {
+        border: 1px solid #c0c0c0;
+        font-family: 'Segoe UI', Arial;
+        font-weight: bold;
+        height: 20px;
+    }
+    .DdsDateField_Right,
+    .DdsDecDateField_Right, 
+    .DdsDateFieldNonAbsolute_Right,
+    .DdsDecDateFieldNonAbsolute_Right {
+        text-align: right;
+    }
+    .DdsDateField_Error,
+    .DdsDecDateField_Error,
+    .DdsDateFieldNonAbsolute_Error,
+    .DdsDecDateFieldNonAbsolute_Error {
+        color: yellow;
+        background-color: blue;
+    }
+    .DdsDateField_OutputOnly, 
+    .DdsDecDateField_OutputOnly,
+    .DdsDateFieldNonAbsolute_OutputOnly,
+    .DdsDecDateFieldNonAbsolute_OutputOnly {
+        /* Add styles if necessary */
+    }
+    .DdsDateFieldNonAbsolute,
+    .DdsDateFieldNonAbsolute_Right,
+    .DdsDateFieldNonAbsolute_Error,
+    .DdsDateFieldNonAbsolute_OutputOnly,
+    .DdsDecDateFieldNonAbsolute,
+    .DdsDecDateFieldNonAbsolute_Right,
+    .DdsDecDateFieldNonAbsolute_Error,
+    .DdsDecDateFieldNonAbsolute_OutputOnly {
+        width: 70% /* input text 70%, button 30% of parent DIV */
+    }
+    .CalendarTable {
+        border-collapse: collapse;
+        font-family: 'Trebuchet MS', Arial, Tahoma, Sans-serif;
+        font-size: 8px;
+        text-align: center;
+        color: black;
+        cursor: default;
+        background-color: #99CCFF;
+        width:180px;
+        height:140px;
+    }
+    .CalendarCloseCell {
+        font-size: 11px;
+    }
+    .CalendarTitle {
+        font-size : 11px;
+        color: white;
+    }
+    .CalendarPrevYear {
+        font-size : 11px;
+    }
+    .CalendarPrevMonth {
+        font-size : 11px;
+    }
+    .CalendarNextMonth {
+        font-size : 11px;
+    }
+    .CalendarNextYear {
+        font-size : 11px;
+    }
+    .CalendarDateCell{
+        width: inherit;
+        font-size: 11px;
+        color: black;
+        background-color: #86AED7;
+        cursor: pointer;
+    }
+    .CalendarSelDateCell {
+        width: inherit;
+        font-size: 11px;
+        color: #003366;
+        background-color: #FFFF66;
+        cursor: pointer;
+    }
+    .CalendarWeekDayCell {
+        width: 20px;
+        font-size: 11px;
+        color: #FFFFFF;
+        background-color: #3366CC;
+    }
+    .CalendarTopRow {
+        color: white;
+    }
+    .CalendarNavRow {
+        font-size : 11px;
+        color: white;
+    }
+    .CalendarExDateCell {
+        background-color:#CDCDCD;
+        font-size : 11px;
+        cursor:hand;
+    }
+    .DdsDecField  {
+        height: 20px; 
+        font-family: 'Segoe UI', 
+        Arial; font-weight: bold; 
+        border: 1px solid #c0c0c0;  
+        text-align: right; 
+    }
+    .DdsDecField_Error  {
+        height: 20px; 
+        border: 1px solid #c0c0c0; 
+        font-family: 'Segoe UI', Arial; 
+        font-weight: bold; 
+        color: yellow; 
+        background-color: blue; 
+        text-align: right; 
+    }
+    .DdsDecField_OutputOnly  {
+        height: 20px; 
+        color: #666666; 
+        font-family: 'Segoe UI', Arial; 
+        font-weight: bold; 
+        text-align: right;
+    }
+    .DdsDecField_Left  {
+        height: 20px; 
+        border: 1px solid #c0c0c0;  
+        font-family: 'Segoe UI' , Arial; 
+        font-weight: bold; 
+        text-align: left; 
+    }
+    .DdsDecField_Left_Error  {
+        height: 20px; 
+        border: 1px solid #c0c0c0; 
+        color: yellow; 
+        text-align: left; 
+        font-family: 'Segoe UI', Arial; 
+        font-weight: bold;
+        font-weight: bold; 
+        background-color: blue; 
+    }
+    .DdsDecField_Left_OutputOnly  {
+        height: 20px; 
+        color: #666666; 
+        text-align: right; 
+        font-family: 'Segoe UI' , Arial; 
+        font-weight: bold;  
+        text-align: left; 
+    }
+
+    .DdsDecField_Right  {
+        height: 20px; 
+        font-family: 'Segoe UI', Arial; 
+        font-weight: bold; 
+        border: 1px solid #c0c0c0;  
+        text-align: right; 
+    }
+    .DdsDecField_Right_Error  {
+        height: 20px; 
+        border: 1px solid #c0c0c0; 
+        font-family: 'Segoe UI', Arial; 
+        font-weight: bold; 
+        color: yellow; 
+        background-color: blue; 
+        text-align: right; 
+    }
+    .DdsDecField_Right_OutputOnly  {
+        height: 20px; 
+        color: #666666; 
+        font-family: 'Segoe UI', Arial; 
+        font-weight: bold; 
+        text-align: right;
+    }
+    .DdsDecFieldInvalidLength  {
+        width: 30%; 
+        height: 20px; 
+        border-width: 1px; 
+        border-style: solid; 
+        border-color: red; 
+        color: red; 
+        text-align: center; 
+        font-size: 12px; 
+        font-family: 'Segoe UI', Arial; 
+        background: yellow; 
+        opacity: 0.75; /* Firefox, Chrome */ 
+        filter: alpha(opacity=75); /* IE */
+        cursor: default; 
+    }
+    .DdsTimeField {
+        font-size: 9pt;
+        font-family: 'Trebuchet MS', Arial;
+    }
+    .DdsTimeField_Error {
+        font-size: 9pt;
+        font-family: 'Trebuchet MS', Arial;
+        font-weight: bold;
+        color: yellow;
+        background-color: blue;
+    }
+    .DdsTimeField_OutputOnly {
+        font-size: 9pt;
+        font-family: 'Trebuchet MS', Arial;
+    }
+    .DdsTimeField_Link { /* Hyperlink style */
+        font-size: 9pt;
+        font-family: 'Trebuchet MS', Arial;
+        cursor: hand;
+        text-decoration: underline;
+    }
+    .DdsTimestampField { /* Timestamp field */
+        font-size: 9pt;
+        font-family: 'Trebuchet MS', Arial;
+    }
+    .DdsTimestampField_Error { /* Timestamp field Error*/
+        font-size: 9pt;
+        font-family: 'Trebuchet MS', Arial;
+        font-weight: bold;
+        color: yellow;
+        background-color: blue;
+    }
+    .DdsTimestampField_OutputOnly { /* Output only Timestamp field*/
+        font-size: 9pt;
+        font-family: 'Trebuchet MS', Arial;
+    }
+    .DdsTimestampField_Link { /* Hyperlink style */
+        font-size: 9pt;
+        font-family: 'Trebuchet MS', Arial;
+        cursor: hand;
+        text-decoration: underline;
+    }
+
+    /* DDS Records */
+    .DdsRecordName { }
+    .DdsRecord {
+        width: 100%;
+        margin-left: 32px;
+        margin-top: 0px;
+        display: block;
+    }
+
+    /* DDS Subfile */
+    .DdsSubfileRecord {
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 0px;
+        display: block;
+    }
+    .DefaultRow {
+        background-color: #F2F2F2;
+    }
+    .AlternateRow {
+        background-color: #ffffff;
+    }
+    .DdsSubfileSBar  {
+        background-image: url(../Images/SBBK.png); 
+        background-repeat:repeat-y; 
+        cursor:pointer; 
+    }
+    .DdsSubfileSBarUp {
+        background-image: url(../Images/SBUp.png); 
+        background-repeat:no-repeat; 
+    }
+    .DdsSubfileSBarDn {
+        background-image: url(../Images/SBDn.png); 
+        background-repeat:no-repeat; 
+    }
+
+
+    /* DDS Subfile Cursor RRN */
+    .DdsSubfileCandidateCurrentRecord  {
+        background-color: #CCFFFF; 
+        -webkit-border-radius: 5px; 
+        -moz-border-radius: 5px; 
+        border-radius: 5px; 
+    }
+    .DdsSubfileCurrentRecord  {
+        background-color: #6699CC; 
+        -webkit-border-radius: 5px; 
+        -moz-border-radius: 5px; 
+        border-radius: 5px; 
+    }
+
+    /* DDS Subfile touch Less/More */
+    .DdsSubfileLess, .DdsSubfileMore {
+        text-align: center;
+        line-height: 1.5;
+        font-size:20px;        
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+        font-weight:normal;
+        font-style: italic;
+        height: 32px;
+        background-color: white;
+        color:blue;
+    }
+}   /* End of @media screen Defaults */
+
+@media screen and (max-width:1100px) { /* Current width less than 1,100 pixels? (i.e. iPad2 Landscape orientation) */
+ 
+    .DdsCharField, .DdsCharField_Link, .DdsCharField_Error, .DdsCharField_OutputOnly, .DdsCharField_Right, .DdsCharField_Right_Error, .DdsCharField_Right_OutputOnly {
+        font-size:18px;        
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+        font-weight:normal;
+        height: 25px;
+        padding: 2px;
+        -webkit-border-radius:8px; 
+    }
+
+    .DdsConstant, .DdsConstant_Right {
+        font-size:18px;
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+    }
+    
+    .leftLabels_Right, .rightLabels {
+        font-size:18px;
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+    }
+    
+    .leftLabels_Right_DblSpace {
+        font-size:18px;
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+    }
+    
+    .DdsConstant_iPadLandscapeOnly  {
+        font-size:18px;
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+        font-size:18px;
+        display : block;        
+    }
+    
+    .DdsDecField, .DdsDecField_Error, .DdsDecField_OutputOnly, .DdsDecField_Left, .DdsDecField_Left_Error, .DdsDecField_Left_OutputOnly, .DdsDecField_Right, .DdsDecField_Right_Error, .DdsDecField_Right_OutputOnly  {
+        font-size:18px;        
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+        font-weight:normal;
+        height: 25px;
+        padding: 2px;
+        -webkit-border-radius:8px;
+    }
+    
+    .DdsConstant_Title {
+    }   
+
+    #AsnaTermPREF_Colors {
+        width:100px;
+        height:40px;
+        background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.3, rgb(23,84,163)),
+            color-stop(0.6, rgb(110,175,250))
+        );
+    }
+}
+
+@media screen and (max-width:940px) {   /* Current width less than 940 pixels? (i.e. Asus Portrait orientation) */
+}
+
+@media screen and (max-width:780px) {   /* Current width less than 780 pixels? */
+}
+
+@media screen and (max-width:770px) {   /* Current width less than 770 pixels? (i.e iPad2 Portrait orientation) */
+    .DdsConstant_Title {
+        left: 228px;
+    }   
+    .DdsConstant_iPadLandscapeOnly {
+        display : none;
+    }
+}
+
+@media screen and (max-width:670px) {   /* Current width less than 670 pixels? */
+}
+
+@media screen and (max-width:500px) {   /* Current width less than 500 pixels? */
+                                        
+    #AsnaTermEnterButton {
+        width: 115px;
+        height: 35px;
+        font-size: 15px;
+        border-radius: 3px;
+    }
+    
+    #AsnaTermResetButton {
+        width: 115px;
+        height: 35px;
+        font-size: 15px;
+        border-radius: 3px;
+    }
+                                        
+    .AsnaTermFKeyHotSpotMobile {
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+    }       
+    
+    #AsnaTermIbmKeyPad {   /* Width = (number of buttons) x width(button) + gap(group) */
+        width: 480px;
+        height : 40px;
+    }
+    
+    .AsnaTermIbmKeyPadButtonMobile {
+        width: 55px;
+        height: 32px;
+    }
+    
+    .AsnaTermIbmPopupSelButtonMobile {
+        width: 40px;
+        height: 23px;
+        font-size: 0.5em;
+        border-radius: 6px;
+    }
+
+    #AsnaTermSettingsDialog {
+        font-size: 11px;	    
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+        width:100%;
+        display: none;
+    }
+
+    .AsnaTermSettingsLabel {
+        margin-left: 8px;
+    }
+
+    #AsnaTermSettingsNotes {
+        margin-left: 10px;        
+        font-size: 11px;	    
+    }
+    
+    .AsnaToggleSwitch {
+      font-size: 11px;
+      width: 5em;
+      height: 2em;
+    }
+    
+    .AsnaToggleSwitch-wrapper > .AsnaToggleSwitch-on {
+      width: 2.8em;
+      padding-left: 1.2em;
+    }
+
+    .AsnaToggleSwitch-wrapper > .AsnaToggleSwitch-off {
+      width: 2.8em;
+      padding-right: 1.2em;
+    }    
+
+    .AsnaToggleSwitch-wrapper > .AsnaToggleSwitch-handle {
+      width: 2em;
+      margin-left: -4.9em;
+    }
+}
+
+@media screen and (max-width:322px) {   /* Current width less than 322 pixels? (i.e. iPhone 3Gs) */
+}
+
+
+
+

@@ -1,0 +1,38 @@
+            dcl-ds Infds;
+                ActionRequest Char(1)  Pos(369);
+                CurrentFormat Char(10) Pos(261);
+            end-ds;
+            
+            dcl-c F01 const(x'31');
+            dcl-c F02 const(x'32');
+            dcl-c F03 const(x'33');
+            dcl-c F04 const(x'34');
+            dcl-c F05 const(x'35');
+            dcl-c F06 const(x'36');
+            dcl-c F07 const(x'37');
+            dcl-c F08 const(x'38');
+            dcl-c F09 const(x'39');
+            dcl-c F10 const(x'3a');
+            dcl-c F11 const(x'3b');
+            dcl-c F12 const(x'3c');
+            dcl-c F13 const(x'b1');
+            dcl-c F14 const(x'b2');
+            dcl-c F15 const(x'b3');
+            dcl-c F16 const(x'b4');
+            dcl-c F17 const(x'b5');
+            dcl-c F18 const(x'b6');
+            dcl-c F19 const(x'b7');
+            dcl-c F20 const(x'b8');
+            dcl-c F21 const(x'b9');
+            dcl-c F22 const(x'ba');
+            dcl-c F23 const(x'bb');
+            dcl-c F24 const(x'bc');
+
+            // Other attention keys
+            dcl-c Clear_Key       const(x'bd');
+            dcl-c Enter           const(x'f1');
+            dcl-c Help            const(x'f3');
+            dcl-c PageUp          const(x'f4');
+            dcl-c PageDown        const(x'f5');
+            dcl-c Print_Key       const(x'f6');
+            dcl-c Auto_Enter      const(x'50');

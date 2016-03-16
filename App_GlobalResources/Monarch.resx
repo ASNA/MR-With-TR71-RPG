@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DdsDecFieldInvalidLength" xml:space="preserve">
+    <value>Length of numeric value exceeds {0} positions.</value>
+  </data>
+  <data name="DdsDecFieldOutsideValidRange" xml:space="preserve">
+    <value> Field {0} requires one of these value(s): {1}.</value>
+  </data>
+  <data name="DdsDecFieldTooLarge" xml:space="preserve">
+    <value>Value '{0}' is too large.</value>
+  </data>
+  <data name="DdsDecFieldValidDecimals" xml:space="preserve">
+    <value>Use of decimals not correct or too many numbers entered.</value>
+  </data>
+  <data name="DecDdsFieldInvalid" xml:space="preserve">
+    <value> '{0}' is invalid for decimal field {1}.</value>
+  </data>
+  <data name="DecDdsFieldOverflow" xml:space="preserve">
+    <value>'{0}' is either too large or too small for decimal field {1}.</value>
+  </data>
+  <data name="DecFieldValidRange" xml:space="preserve">
+    <value>Between {0} and {1}.</value>
+  </data>
+  <data name="DdsSubfileRequestLessRecords" xml:space="preserve">
+    <value>Tap here to request more records...</value>
+  </data>
+  <data name="DdsSubfileRequestMoreRecords" xml:space="preserve">
+    <value>Tap here to request more records...</value>
+  </data>
+  <data name="TermEmulatorConfirmExitMsg" xml:space="preserve">
+    <value>There is an active session with the IBMi.</value>
+  </data>
+  <data name="TermEmulatorConfirmPasteMsg" xml:space="preserve">
+    <value>Text to Paste</value>
+  </data>
+  <data name="TermEmulatorError0004Text" xml:space="preserve">
+    <value>Entry of data not allowed in this input/output field.</value>
+  </data>
+  <data name="TermEmulatorError0005Text" xml:space="preserve">
+    <value>Cursor in protected area of display.</value>
+  </data>
+  <data name="TermEmulatorError0006Text" xml:space="preserve">
+    <value>Key pressed following System Request key was not valid.</value>
+  </data>
+  <data name="TermEmulatorError0007Text" xml:space="preserve">
+    <value>Mandatory data entry field. Must have data entered.</value>
+  </data>
+  <data name="TermEmulatorError0008Text" xml:space="preserve">
+    <value>Field requires alphabetic characters.</value>
+  </data>
+  <data name="TermEmulatorError0009Text" xml:space="preserve">
+    <value>Field requires numeric characters.</value>
+  </data>
+  <data name="TermEmulatorError0010Text" xml:space="preserve">
+    <value>Only characters 0 through 9 allowed.</value>
+  </data>
+  <data name="TermEmulatorError0011Text" xml:space="preserve">
+    <value>Key for sign position of field not valid.</value>
+  </data>
+  <data name="TermEmulatorError0012Text" xml:space="preserve">
+    <value>No room to insert data.</value>
+  </data>
+  <data name="TermEmulatorError0013Text" xml:space="preserve">
+    <value>During insert mode, only data keys allowed.</value>
+  </data>
+  <data name="TermEmulatorError0014Text" xml:space="preserve">
+    <value>Mandatory fill field. Must fill to exit.</value>
+  </data>
+  <data name="TermEmulatorError0014Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error. Enter data in entire field or press "Field Exit":Shift+"Enter" key to blank entire field.</value>
+  </data>
+  <data name="TermEmulatorError0015Text" xml:space="preserve">
+    <value>Check digit error.</value>
+  </data>
+  <data name="TermEmulatorError0015Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error. The cursor is at beginning of field. Enter correct number and check digit or press "Field Exit":Shift+"Enter" key to clear field.</value>
+  </data>
+  <data name="TermEmulatorError0016Text" xml:space="preserve">
+    <value>Field Minus key not valid in field.</value>
+  </data>
+  <data name="TermEmulatorError0016Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error  to continue operation at present cursor position. Continue entering data or press "Field Exit":Shift+"Enter" key to leave field.</value>
+  </data>
+  <data name="TermEmulatorError0017Text" xml:space="preserve">
+    <value>This field must be filled before exiting. Key used not valid.</value>
+  </data>
+  <data name="TermEmulatorError0017Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error.  Cursor positioned to continue entering data in field. Enter data to the end of field or position the cursor to beginning of field and "Field Exit":Shift+"Enter" key to blank entire field.</value>
+  </data>
+  <data name="TermEmulatorError0019Text" xml:space="preserve">
+    <value>Duplicate key or Field Mark key not allowed in field.</value>
+  </data>
+  <data name="TermEmulatorError0019Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error and the "Field Exit":Shift+"Enter" key to leave the field.</value>
+  </data>
+  <data name="TermEmulatorError0020Text" xml:space="preserve">
+    <value>Enter key not allowed in field. Exit field first.</value>
+  </data>
+  <data name="TermEmulatorError0020Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error and "Field Exit":Shift+"Enter" key.</value>
+  </data>
+  <data name="TermEmulatorError0021Text" xml:space="preserve">
+    <value>Mandatory enter field must have data entered.</value>
+  </data>
+  <data name="TermEmulatorError0021Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error  and continue entering data in field.</value>
+  </data>
+  <data name="TermEmulatorError0026Text" xml:space="preserve">
+    <value>0-9 required for last position of numeric-only field.</value>
+  </data>
+  <data name="TermEmulatorError0026Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error  to continue.</value>
+  </data>
+  <data name="TermEmulatorHexEntryPrompt" xml:space="preserve">
+    <value>Enter character or four digit HEX code</value>
+  </data>
+  <data name="TermEmulatorInsertMode" xml:space="preserve">
+    <value>INSERT</value>
+  </data>
+  <data name="TermEmulatorKbdLocked" xml:space="preserve">
+    <value>LOCKED</value>
+  </data>
+  <data name="TermEmulatorLockedRecoveryText" xml:space="preserve">
+    <value>Use "Esc" key to Reset error.</value>
+  </data>
+  <data name="TermEmulatorError0004Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error.</value>
+  </data>
+  <data name="TermEmulatorError0005Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error. Move the cursor to a field where the data can be entered and then enter the data.</value>
+  </data>
+  <data name="TermEmulatorError0006Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error. If system request function required, press "Shift" key, "System Request" key, and "Enter" advance key.</value>
+  </data>
+  <data name="TermEmulatorError0007Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error.  Cursor is now at the first character position in the first mandatory enter field that is not filled. Enter the required data in this field.</value>
+  </data>
+  <data name="TermEmulatorError0008Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error.</value>
+  </data>
+  <data name="TermEmulatorError0009Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error.</value>
+  </data>
+  <data name="TermEmulatorError0010Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error.</value>
+  </data>
+  <data name="TermEmulatorError0011Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error and enter valid key for sign position ("Field+":Shift+"+", "Field-":Shift+"-" , using Numeric keypad).</value>
+  </data>
+  <data name="TermEmulatorError0012Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error. Do not use insert mode to change data or enter last character in field.</value>
+  </data>
+  <data name="TermEmulatorError0013Recovery" xml:space="preserve">
+    <value>Use "Esc" key to Reset error.  For insert mode press "Ins" key.</value>
+  </data>
+  <data name="TermEmulatorKPAD_BTN1" xml:space="preserve">
+    <value>F1-F12</value>
+  </data>
+  <data name="TermEmulatorKPAD_BTN2" xml:space="preserve">
+    <value>F13-F24</value>
+  </data>
+  <data name="TermEmulatorKPAD_BTN3" xml:space="preserve">
+      <value>Special</value>
+  </data>
+  <data name="TermEmulatorKPAD_BTN3_ACTIONS" xml:space="preserve">
+      <value>NEWLINE,DUP,BEGIN,END,INSERT,DELETE,FIELDMINUS,FIELDPLUS,HELP,ATTN,RESET</value>
+  </data>
+  <data name="TermEmulatorKPAD_USR4" xml:space="preserve">
+    <value>HELP</value>
+  </data>
+  <data name="TermEmulatorKPAD_USR5" xml:space="preserve">
+    <value>CLEAR</value>
+  </data>
+  <data name="TermEmulatorKPAD_USR6" xml:space="preserve">
+    <value>ERASE</value>
+  </data>
+  <data name="TermEmulatorKPAD_USR7" xml:space="preserve">
+    <value>ATTN</value>
+  </data>
+  <data name="TermEmulatorKPAD_USR8" xml:space="preserve">
+    <value>FIELDEXIT</value>
+  </data>
+  <data name="TermEmulatorKPAD_USR4_MOBILE" xml:space="preserve">
+    <value>RECORD</value>
+  </data>
+  <data name="TermEmulatorKPAD_USR5_MOBILE" xml:space="preserve">
+    <value>LEFT</value>
+  </data>
+  <data name="TermEmulatorKPAD_USR6_MOBILE" xml:space="preserve">
+    <value>RIGHT</value>
+  </data>
+  <data name="TermEmulatorKPAD_USR7_MOBILE" xml:space="preserve">
+    <value>END</value>
+  </data>
+  <data name="TermEmulatorKPAD_USR8_MOBILE" xml:space="preserve">
+    <value>FIELDEXIT</value>
+  </data>
+  <data name="TermEmulatorKPAD_PGUP" xml:space="preserve">
+    <value>PgUp</value>
+  </data>
+  <data name="TermEmulatorKPAD_PGDN" xml:space="preserve">
+    <value>PgDn</value>
+  </data>
+  <data name="TermEmulatorKPAD_ENTER" xml:space="preserve">
+    <value>Enter</value>
+  </data>
+  <data name="TermEmulatorKPAD_NEWLINE" xml:space="preserve">
+    <value>New Line</value>
+  </data>
+  <data name="TermEmulatorKPAD_HELP" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="TermEmulatorKPAD_INSERT" xml:space="preserve">
+    <value>Ins</value>
+  </data>
+  <data name="TermEmulatorKPAD_DELETE" xml:space="preserve">
+    <value>Del</value>
+  </data>
+  <data name="TermEmulatorKPAD_ERASE" xml:space="preserve">
+    <value>Erase</value>
+  </data>
+  <data name="TermEmulatorKPAD_DUP" xml:space="preserve">
+    <value>Dup</value>
+  </data>
+  <data name="TermEmulatorKPAD_FIELDMINUS" xml:space="preserve">
+    <value>Fld Minus</value>
+  </data>
+  <data name="TermEmulatorKPAD_FIELDPLUS" xml:space="preserve">
+    <value>Fld Plus</value>
+  </data>
+  <data name="TermEmulatorKPAD_FIELDEXIT" xml:space="preserve">
+    <value>Fld Exit</value>
+  </data>
+  <data name="TermEmulatorKPAD_FIELDEXITENTER" xml:space="preserve">
+    <value>Fld Exit Enter</value>
+  </data>
+  <data name="TermEmulatorKPAD_RECORD" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="TermEmulatorKPAD_END" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="TermEmulatorKPAD_LAST" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="TermEmulatorKPAD_COPY" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="TermEmulatorKPAD_CUT" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="TermEmulatorKPAD_PASTE" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="TermEmulatorKPAD_CLEAR" xml:space="preserve">
+    <value>Clr</value>
+  </data>
+  <data name="TermEmulatorKPAD_RESET" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="TermEmulatorKPAD_BEGIN" xml:space="preserve">
+    <value>Begin</value>
+  </data>
+  <data name="TermEmulatorKPAD_ATTN" xml:space="preserve">
+    <value>Attn</value>
+  </data>
+  <data name="TermEmulatorKPAD_SYSREQ" xml:space="preserve">
+    <value>Sys Req</value>
+  </data>
+  <data name="TermEmulatorKPAD_HEX" xml:space="preserve">
+    <value>Hex</value>
+  </data>
+  <data name="TermEmulatorKPAD_PRINT" xml:space="preserve">
+    <value>Prt</value>
+  </data>
+  <data name="TermEmulatorPREF_LFKHS" xml:space="preserve">
+    <value>FKey Hotspots:</value>
+  </data>
+  <data name="TermEmulatorPREF_LFUBTNS" xml:space="preserve">
+    <value>Reset Button:</value>
+  </data>
+  <data name="TermEmulatorPREF_LFUBTNS_MOBILE" xml:space="preserve">
+    <value>Enter/Reset Buttons:</value>
+  </data>
+  <data name="TermEmulatorPREF_LKPADAUTOHIDE" xml:space="preserve">
+    <value>Autohide Keypad:</value>
+  </data>
+  <data name="TermEmulatorPREF_YES" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="TermEmulatorPREF_NO" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="TermEmulatorPREF_LKPADNOTE" xml:space="preserve">
+    <value>Note: To display the IBM keypad click on the left screen edge, right screen edge or the statusbar.</value>
+  </data>
+  <data name="TermEmulatorPREF_LKPADNOTE_MOBILE" xml:space="preserve">
+    <value>Note: To display the IBM keypad touch the left screen edge, right screen edge or the statusbar.</value>
+  </data>
+  <data name="TermEmulatorCOLOR_Attr" xml:space="preserve">
+    <value>Attribute</value>
+  </data>
+  <data name="TermEmulatorCOLOR_Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="TermEmulatorCOLOR_BgColor" xml:space="preserve">
+    <value>Background-color</value>
+  </data>
+  <data name="TermEmulatorCOLOR_LGREEN" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="TermEmulatorCOLOR_LBLUE" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="TermEmulatorCOLOR_LRED" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="TermEmulatorCOLOR_LWHITE" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="TermEmulatorCOLOR_LTURQUOISE" xml:space="preserve">
+    <value>Turquoise</value>
+  </data>
+  <data name="TermEmulatorCOLOR_LYELLOW" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="TermEmulatorCOLOR_LPINK" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="TermEmulatorCOLOR_Other" xml:space="preserve">
+    <value>Other elements</value>
+  </data>
+  <data name="TermEmulatorCOLOR_LCURSOR" xml:space="preserve">
+    <value>Cursor:</value>
+  </data>
+  <data name="TermEmulatorCOLOR_LSEL" xml:space="preserve">
+    <value>Text selection:</value>
+  </data>
+  <data name="TermEmulatorColorApply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="TermEmulatorColorDefaults" xml:space="preserve">
+    <value>Restore Defaults</value>
+  </data>
+  <data name="MonarchKeyClear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="MonarchKeyEnter" xml:space="preserve">
+    <value>Enter</value>
+  </data>
+  <data name="MonarchKeyF1" xml:space="preserve">
+    <value>F1</value>
+  </data>
+  <data name="MonarchKeyF10" xml:space="preserve">
+    <value>F10</value>
+  </data>
+  <data name="MonarchKeyF11" xml:space="preserve">
+    <value>F11</value>
+  </data>
+  <data name="MonarchKeyF12" xml:space="preserve">
+    <value>F12</value>
+  </data>
+  <data name="MonarchKeyF13" xml:space="preserve">
+    <value>F13</value>
+  </data>
+  <data name="MonarchKeyF14" xml:space="preserve">
+    <value>F14</value>
+  </data>
+  <data name="MonarchKeyF15" xml:space="preserve">
+    <value>F15</value>
+  </data>
+  <data name="MonarchKeyF16" xml:space="preserve">
+    <value>F16</value>
+  </data>
+  <data name="MonarchKeyF17" xml:space="preserve">
+    <value>F17</value>
+  </data>
+  <data name="MonarchKeyF18" xml:space="preserve">
+    <value>F18</value>
+  </data>
+  <data name="MonarchKeyF19" xml:space="preserve">
+    <value>F19</value>
+  </data>
+  <data name="MonarchKeyF2" xml:space="preserve">
+    <value>F2</value>
+  </data>
+  <data name="MonarchKeyF20" xml:space="preserve">
+    <value>F20</value>
+  </data>
+  <data name="MonarchKeyF21" xml:space="preserve">
+    <value>F21</value>
+  </data>
+  <data name="MonarchKeyF22" xml:space="preserve">
+    <value>F22</value>
+  </data>
+  <data name="MonarchKeyF23" xml:space="preserve">
+    <value>F23</value>
+  </data>
+  <data name="MonarchKeyF24" xml:space="preserve">
+    <value>F24</value>
+  </data>
+  <data name="MonarchKeyF3" xml:space="preserve">
+    <value>F3</value>
+  </data>
+  <data name="MonarchKeyF4" xml:space="preserve">
+    <value>F4</value>
+  </data>
+  <data name="MonarchKeyF5" xml:space="preserve">
+    <value>F5</value>
+  </data>
+  <data name="MonarchKeyF6" xml:space="preserve">
+    <value>F6</value>
+  </data>
+  <data name="MonarchKeyF7" xml:space="preserve">
+    <value>F7</value>
+  </data>
+  <data name="MonarchKeyF8" xml:space="preserve">
+    <value>F8</value>
+  </data>
+  <data name="MonarchKeyF9" xml:space="preserve">
+    <value>F9</value>
+  </data>
+  <data name="MonarchKeyHelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="MonarchKeyPageDown" xml:space="preserve">
+    <value>PgDn</value>
+  </data>
+  <data name="MonarchKeyPageUp" xml:space="preserve">
+    <value>PgUp</value>
+  </data>
+  <data name="MonarchKeyPrint" xml:space="preserve">
+    <value>Prt</value>
+  </data>
+  <data name="MonarchKeyReset" xml:space="preserve">
+    <value>Rst</value>
+  </data>
+  <data name="MonarchKeyAttn" xml:space="preserve">
+    <value>Attn</value>
+  </data>
+</root>

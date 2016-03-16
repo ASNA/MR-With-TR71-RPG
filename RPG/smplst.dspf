@@ -1,0 +1,38 @@
+A                                      DSPSIZ(27 132 *DS4)
+A                                      INDARA
+A          R CUSTLIST
+A                                      OVERLAY
+A            MOREROWS      10A  O  1  2
+A          R CUSTINFO
+A                                      OVERLAY
+A            CUSTKEY       50A  O  1  2
+A            CMNAME        40A  B  2  1
+A            CMADDR1       35A  B  2 43
+A            CMCITY        30A  B  3  1
+A            CMSTATE        2A  B  3 33
+A            CMPOSTCODE    10A  B  3 37
+A          R CUSTMAP
+A                                      OVERLAY
+A            CMNAME        40A  O  1  2
+A            CSZ           60A  O  2  1
+A          R CSTSBF                    SFL
+A            CSTSEL         1A  H
+A            CSTTXT        70A  O  1  5
+A            CSTVAL        30A  H
+A            CSTDTL        50A  O  3  1
+A          R CSTCTRL                   SFLCTL(CSTSBF)
+A                                      SFLSIZ(2)
+A                                      SFLPAG(1)
+A N99                                  SFLDSP
+A N99                                  SFLDSPCTL
+A  99                                  SFLCLR
+A                                      OVERLAY
+A          R MAPSBF                    SFL
+A            LOCATION      60A  O  1  2
+A          R MAPCTRL                   SFLCTL(MAPSBF) 
+A                                      SFLSIZ(2)
+A                                      SFLPAG(1)
+A N99                                  SFLDSP
+A N99                                  SFLDSPCTL
+A  99                                  SFLCLR
+A                                      OVERLAY

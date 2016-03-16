@@ -1,0 +1,20 @@
+0001  dcl-ds Infds;
+0002      ActionRequest Char(1)  Pos(369);
+0003      CurrentFormat Char(10) Pos(261);
+0004  end-ds;
+0005
+0006  dcl-c F01 const(x'31');
+0007  dcl-c F02 const(x'32');
+0008  dcl-c F03 const(x'33');
+...
+0028  dcl-c F23 const(x'bb');
+0029  dcl-c F24 const(x'bc');
+0030
+0031  // Other attention keys
+0032  dcl-c Clear_Key       const(x'bd');
+0033  dcl-c Enter           const(x'f1');
+0034  dcl-c Help            const(x'f3');
+0035  dcl-c PageUp          const(x'f4');
+0036  dcl-c PageDown        const(x'f5');
+0037  dcl-c Print_Key       const(x'f6');
+0038  dcl-c Auto_Enter      const(x'50');

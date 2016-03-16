@@ -1,0 +1,7 @@
+﻿
+BegClass _Default Partial(*Yes) Extends(System.Web.UI.Page)
+    BegSr OnLoad Access(*protected) Modifier(*overrides)
+        DclSrParm Name(e) Type(System.EventArgs)
+		Response.Redirect("~/Monarch/SignOn.aspx")
+	EndSr
+EndClass

@@ -1,0 +1,53 @@
+DclNameSpace ASNA.Monarch.Support
+
+Using System
+Using System.Collections
+Using System.ComponentModel
+Using System.Data
+Using System.Drawing
+Using System.Web
+Using System.Web.SessionState
+Using System.Web.UI
+Using System.Web.UI.WebControls
+Using System.Web.UI.HtmlControls
+
+BegClass Diagnose Partial(*Yes) Extends(System.Web.UI.Page)
+
+    BegSr OnLoad Access(*protected) Modifier(*overrides)
+        DclSrParm Name(e) Type(System.EventArgs)
+        DclFld Device Type(ASNA.Monarch.WebDevice)
+        DclFld Msg    Type(*String)
+        DclFld Stk    Type(*String)
+        DclFld Newline Type(*String)
+        DclArray lines Type(*String) Rank(1)
+
+        Newline = U'000A'
+        Msg = *base.Request.QueryString["m"]
+        If (msg <> *Nothing )
+            lblMessage.Text = Msg
+            Stk = *base.Request.QueryString["s"]
+            If (msg <> *Nothing )
+                lblStackTrace.Text = Stk
+            EndIf
+        Else
+            Device = Session["Device"] *as ASNA.Monarch.WebDevice
+            If (Device = *Nothing )
+                Response.Redirect( "!ExpiredSession.htm" )
+            EndIf
+            lblMessage.Text    = Device.AbEndMessage
+            lblStackTrace.Text = Device.AbEndStack
+        EndIf
+        
+        If (lblStackTrace.Text <> *Nothing)
+            lines = lblStackTrace.Text.Split(Newline.Chars[0])
+            Stk = ""
+            ForEach line collection(lines) type(*String)
+                Stk = Stk + "<div>" + line + "</div>" + Newline
+            EndFor
+            lblStackTrace.Text = Stk
+        EndIf
+
+        Session.Abandon()
+    EndSr
+     
+EndClass

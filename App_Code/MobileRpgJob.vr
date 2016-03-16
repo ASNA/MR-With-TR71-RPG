@@ -1,0 +1,212 @@
+﻿using System
+using System.Text
+using System.Collections.Generic
+using System.Configuration
+using ASNA.DataGate.Common
+
+dclnamespace MrLogic
+    Begclass MobileRpgJob access(*public) partial(*yes) extends(ASNA.Monarch.WebJob)
+
+        dcldb myDatabase DBName("") VTerm(*MonarchWeb) OpenAccessDspF(*MobileRPG)
+
+        Begfunc getDatabase type(ASNA.VisualRPG.Runtime.Database) access(*protected) modifier(*overrides)
+            leavesr myDatabase
+        Endfunc
+
+        Begsr Dispose access(*public) modifier(*overrides)
+            dclsrparm disposing *boolean
+            if( disposing )
+                Disconnect myDatabase
+            Endif
+            *base.Dispose( disposing )
+        Endsr
+
+        /region LogonScreen
+
+        Begclass LogonInfo
+            dclfld Server *string access(*public) inz("")
+            dclfld User *string access(*public) inz("")
+            dclfld Password *string access(*public) inz("")
+            dclfld Message *string access(*public) inz("")
+            dclfld Port *integer4 access(*public) inz(5042)
+			dclfld PromptServer *boolean access(*public)
+
+			BegConstructor access(*public)
+				dclfld webConfig  System.Collections.Specialized.NameValueCollection
+				dclfld portStr *string
+				dclfld promptStr *string
+				webConfig = ConfigurationManager.AppSettings
+				Server = webConfig[ "MobileRPGServerName" ]
+				If Server = *nothing
+					Server = "cypress"
+				EndIf
+				User = webConfig[ "MobileRPGUsername" ]
+				If User = *nothing
+					User = "ROGERSO"
+				EndIf
+				portStr = webConfig[ "MobileRPGServerPort" ]
+				If portStr = *nothing *or *not Int32.TryParse( webConfig[ "MobileRPGServerPort" ], *byref Port )
+                    Port = 5110
+				EndIf
+				promptStr = webConfig[ "MobileRPGPromptForServer" ]
+				If promptStr = *nothing
+					promptStr = "no"
+				EndIf
+				PromptServer = *not promptStr.Equals( "no", StringComparison.InvariantCultureIgnoreCase )
+			EndConstructor
+        Endclass
+
+        BegFunc promptLogon type(*boolean) access(*private)
+            dclsrparm logonInfo LogonInfo
+
+            dclfld wfSignon ASNA.Monarch.DynamicDisplayFile
+            wfSignon = *new ASNA.Monarch.DynamicDisplayFile( "~/Monarch/SignOn.aspx" )
+            wfSignon.Open()
+
+            dclarray myIndicators dim(100) type(*onechar)
+            do FromVal(1) ToVal(99) Index(i) Type(*integer4)
+                myIndicators[ i ] = o'1'
+            enddo
+			If logonInfo.PromptServer
+                myIndicators[ 30 ] = o'0'
+			EndIf
+
+            logonInfo.Password = ""
+            wfSignon.Write( "RSIGNON", myIndicators, *new ASNA.Monarch.Wings.PopulateBuffer( populateSignonBuffer ), logonInfo )
+            wfSignon.Read()
+			If wfSignon.FeedbackAID = ( ASNA.Monarch.WebDspF.AidKeyIBM.F3 *as byte )
+                leavesr *false
+			EndIF
+
+            dclfld row System.Data.DataRow
+            row = wfSignon.DataSet.Tables[ "RSIGNON" ].Rows[ 0 ]
+
+			If logonInfo.PromptServer
+				logonInfo.Server = row[ "SYSTEM" ].ToString().Trim()
+				logonInfo.Port = *decimal.Parse( row[ "PORT" ].ToString() ) *as *integer4
+			EndIf
+			logonInfo.User = row[ "USER" ].ToString().Trim()
+            logonInfo.Password = row[ "PASSWORD" ].ToString().Trim()
+            logonInfo.Message = ""
+
+            wfSignon.Close()
+			leavesr *true
+        EndFunc
+
+        Begsr populateSignonBuffer
+            dclsrparm formatName *string
+            dclsrparm newRow System.Data.DataRow
+            dclsrparm cookie *object
+
+            dclfld logonInfo LogonInfo 
+            logonInfo = cookie *as LogonInfo
+
+            newRow[ "SYSTEM" ] = logonInfo.Server
+            newRow[ "PORT" ] = logonInfo.Port
+            newRow[ "USER" ] = logonInfo.User
+            newRow[ "PASSWORD" ] = logonInfo.Password
+            newRow[ "MESSAGE" ] = logonInfo.Message
+        Endsr
+
+        BegFunc connect type(*boolean) access(*private)
+            dclsrparm message *string
+
+            dclfld logonInfo LogonInfo new()
+            logonInfo.Message = message
+
+			dclfld webConfig  System.Collections.Specialized.NameValueCollection
+			dclfld dbName *string
+			dclfld hasDbName *boolean
+
+            webConfig = ConfigurationManager.AppSettings
+            dbName = webConfig[ "MobileRPGDatabaseName" ]
+            hasDbName = *not String.IsNullOrWhiteSpace(dbName)
+            If hasDBName
+                myDatabase.DBName = dbName
+            EndIf
+
+            dowhile *true
+				If *not hasDbName *and *not promptLogon( logonInfo )
+					leavesr *false
+				EndIf
+				If *not hasDbName
+					myDatabase.Server = logonInfo.Server
+					myDatabase.Port = logonInfo.Port
+					myDatabase.User = logonInfo.User
+					myDatabase.Password = logonInfo.Password
+				EndIf
+                try
+                    CONNECT myDatabase
+                    leave
+                catch dgEx dgException
+                    logonInfo.Message = dgEx.Message
+					hasDbName = *false
+                endtry
+            enddo
+
+            PsdsJobUser = myDatabase.User
+			leavesr *true
+        EndFunc
+
+        /endregion
+
+        Begsr ExecuteStartupProgram access(*protected) modifier(*overrides)
+            dclfld message *string inz("")
+			If *not connect(message)
+				leavesr
+			EndIf
+
+			Try
+				dclfld webConfig  System.Collections.Specialized.NameValueCollection
+				webConfig = ConfigurationManager.AppSettings
+				dclfld libraryName *string
+				libraryName = webConfig[ "MobileRPGLibraryName" ]
+				If *not string.IsNullOrWhitespace( libraryName )
+					foreach libName type(*string) collection( libraryName.Split( o',' )) 
+						Try
+							if *not string.IsNullOrWhiteSpace( libName )
+								callQCmdExec( string.Format( "addlible {0}", libName.Trim() ) )
+							EndIf
+						Catch e Exception
+							if *not e.Message.Contains( "CPF2103" )
+                                throw
+							EndIf
+						EndTry
+					EndFor
+				EndIf
+				dclfld programName *string
+				programName = webConfig[ "MobileRPGProgramName" ] 
+				If *string.IsNullOrWhiteSpace( programName )
+					programName = "HelloRPG"
+				EndIf
+                callQCmdExec(string.Format("addlible {0}", "rpmrdata"))
+                // callQCmdExec(string.Format("addlible {0}", libraryName))
+				CALL programName DB(myDatabase)
+			Catch e Exception
+				if ( *not (e *is ASNA.Monarch.UnsupportedOperationException))
+					Disconnect myDatabase
+				endif
+				dclfld st *string
+				st = e.StackTrace.Replace( Environment.NewLine, "%0A" )
+				*this.ShowPage( string.Format( "~/Monarch/!Diagnose.aspx?m={0}&s={1}", e.Message, st ), *nothing )
+			EndTry
+        Endsr
+
+        Begsr callQCmdExec access(*private)
+            dclsrparm commandParm *char len(256)
+            dclfld lengthParm *packed len(15,5) inz(256)
+            Try
+                Call "QCmdExc" DB(myDatabase)
+					DclParm commandParm
+					DclParm lengthParm
+            Catch dgEx dgException
+                if( dgEx.Error <> dgErrorNumber.dgEiCONNLOST )
+                    throw dgEx
+                endif
+                Try
+                    Disconnect myDatabase
+                Catch
+                Endtry
+            EndTry
+        Endsr
+    Endclass

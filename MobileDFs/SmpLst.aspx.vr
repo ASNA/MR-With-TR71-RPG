@@ -1,0 +1,8 @@
+﻿BegClass HelloDspf Partial(*Yes) Extends(ASNA.Monarch.WebDspF.Page)
+
+    BegSr OnLoad Access(*protected) Modifier(*overrides)
+        DclSrParm Name(e) Type(System.EventArgs)
+
+		*base.OnLoad(e)
+	EndSr
+EndClass

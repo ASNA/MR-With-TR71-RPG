@@ -1,0 +1,192 @@
+0001  Ctl-Opt Option(*srcstmt) Dftactgrp(*No) ActGrp('rpmobile');
+0002 
+0003  Dcl-F smplst WORKSTN Infds(infds)
+0004                       Handler('MOBILERPG')
+0005                       SFile(CSTSBF:CSTRRN)
+0006                       SFile(MAPSBF:CSTRRN);
+0007 
+0008  Dcl-F CustomerL2 Disk(*ext) Usage(*Input) Keyed
+0009                   Rename(RCMMASTER:RCUSTL2);
+0010 
+0011  Dcl-F CustomerL1 Disk(*ext) Usage(*Update) Keyed
+0012                   Rename(RCMMASTER:RCUSTL1);
+0013 
+0014  Dcl-DS CustL2Key LikeRec(RCUSTL2:*Key);
+0015  Dcl-DS TopRow    LikeRec(RCUSTL2:*Key);
+0016 
+0017  Dcl-S CstRRN   Zoned(4:0);
+0018  Dcl-C MAXROWS  Const(6);
+0019 
+0020  /copy RPMRDATA/QRPGLESRC,KEYMAPF
+0021 
+0022  Dcl-DS Action Qualified;
+0023      Exit           Char(1) Inz(F03);
+0024      Cancel         Char(1) Inz(F02);
+0025      Back           Char(1) Inz(F02);
+0026      ItemTapped     Char(1) Inz(F01);
+0027      ChevronTapped  Char(1) Inz(F04);
+0028      More           Char(1) Inz(F05);
+0029      Backward       Char(1) Inz(F06);
+0030      Find           Char(1) Inz(F07);
+0031      OK             Char(1) Inz(F08);
+0032      Display        Char(1) Inz(F09);
+0033      Remove         Char(1) Inz(F10);
+0034  End-DS;
+0035 
+0036  SetLL *LoVal CustomerL2;
+0037  LoadCstLst();
+0038  ExFmt CUSTLIST;
+0039 
+0040  Dow ActionRequest <> Action.Exit;
+0041      Select;
+0042          When CurrentFormat = 'CUSTLIST';
+0043               Select;
+0044                   When ActionRequest = Action.ItemTapped;
+0045                       ReadC CSTSBF;
+0046                       If ReadCustById(%INT(CSTVAL));
+0047                          // Customer not found.
+0048                       EndIf;
+0049                       ExFmt CUSTINFO;
+0050 
+0051                   When ActionRequest = Action.ChevronTapped;
+0052                       ReadC CSTSBF;
+0053                       If ReadCustById(%INT(CSTVAL));
+0054                          // Customer not found.
+0055                       EndIf;
+0056                       CSZ = %TRIM(CMADDR1) + ', ' +
+0057                             %TRIM(CMCITY) + ', ' +
+0058                             CMState;
+0059                       ShowMap(CSZ);
+0060                       ExFmt CUSTMAP;
+0061 
+0062                    When ActionRequest = Action.More;
+0063                       LoadCstLst();
+0064                       ExFmt CUSTLIST;
+0065 
+0066                    Other;
+0067                       ExFmt CUSTLIST;
+0068               EndSl;
+0069 
+0070         When CurrentFormat = 'CUSTINFO';
+0071              Select;
+0072                  When ActionRequest = Action.OK;
+0073                      UpdateCust();
+0074                      RefreshCustList(CMName:
+0075                                      CMCustNo);
+0076                      ExFmt CUSTLIST;
+0077 
+0078                  When ActionRequest = Action.Cancel;
+0079                      RefreshCustList(TopRow.CMName:
+0080                                      TopRow.CMCustNo);
+0081                      ExFmt CUSTLIST;
+0082 
+0083                  When ActionRequest = Action.Back;
+0084                      SetLL *LoVal CustomerL2;
+0085                      LoadCstLst();
+0086                      ExFmt CUSTLIST;
+0087 
+0088                  Other;
+0089                      SetLL *LoVal CustomerL2;
+0090                      LoadCstLst();
+0091                      ExFmt CUSTLIST;
+0092              EndSl;
+0093 
+0094         When CurrentFormat = 'CUSTMAP';
+0095              Select;
+0096                  When ActionRequest = Action.OK OR
+0097                       ActionRequest = Action.Back;
+0098                      RefreshCustList(CMName:
+0099                                      CMCustNo);
+0100                      ExFmt CUSTLIST;
+0101              EndSl;
+0102 
+0103      EndSl;
+0104  EndDo;
+0105 
+0106  *InLR = *On;
+0107  Return;
+0108 
+0109  Dcl-Proc UpdateCust;
+0110      Update RCustL1;
+0111  End-Proc;
+0112 
+0113  Dcl-Proc LoadCstLst;
+0114      Dcl-S RowCount Packed(12:0);
+0115 
+0116      *IN99 = *On;
+0117      Write CSTCTRL;
+0118      CstRRN = 0;
+0119      RowCount = 0;
+0120 
+0121      DoW (RowCount < MAXROWS);
+0122          Read CustomerL2;
+0123          If NOT %EOF;
+0124              If RowCount = 0;
+0125                  TopRow.CMName = CMName;
+0126                  TopRow.CMCustNo = CMCustNo;
+0127              EndIf;
+0128              RowCount = RowCount + 1;
+0129              CstRRN = CstRRN + 1;
+0130              CSTSEL = '0';
+0131              CSTTXT = CMName;
+0132              CSTDTL = %Trim(CMCITY) + ', ' + CMSTATE;
+0133              CSTVAL = %CHAR(CMCustNO);
+0134              Write CSTSBF;
+0135          Else;
+0136              Leave;
+0137          EndIf;
+0138      EndDo;
+0139 
+0140      *In99 = *Off;
+0141      Write CSTCTRL;
+0142      PeekForEOF();
+0143  End-Proc;
+0144 
+0145  Dcl-Proc PeekForEOF;
+0146      Read CustomerL2;
+0147      If NOT %EOF;
+0148         Eval MOREROWS = 'More...';
+0149         ReadP CustomerL2;
+0150      Else;
+0151         Eval MOREROWS = 'No More';
+0152         SETLL *LOVAL CustomerL2;
+0153      EndIf;
+0154  End-Proc;
+0155 
+0156  Dcl-Proc ReadCustById;
+0157      Dcl-Pi *N Ind;
+0158          CustNo Packed(9:0) CONST;
+0159      End-Pi;
+0160 
+0161      Chain CustNo CustomerL1;
+0162      Return %EOF();
+0163  End-Proc;
+0164 
+0165  Dcl-Proc RefreshCustList;
+0166      Dcl-Pi *N;
+0167          Name Like(CMName);
+0168          CustNo Like(CMCustNo);
+0169      End-Pi;
+0170 
+0171      CustL2Key.CMName = Name;
+0172      CustL2Key.CMCustNo = CustNo;
+0173      SetLL %KDS(CustL2Key) CustomerL2;
+0174      LoadCstLst();
+0175  End-Proc;
+0176 
+0177  Dcl-Proc ShowMap;
+0178      Dcl-Pi *N;
+0179          Address Char(60);
+0180      End-Pi;
+0181 
+0182      *IN99 = *On;
+0183      Write MAPCTRL;
+0184 
+0185      CstRRN = 1;
+0186      Location = Address;
+0187      Write MAPSBF;
+0188 
+0189      *In99 = *Off;
+0190      Write MAPCTRL;
+0191  End-Proc;
+     

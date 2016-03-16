@@ -1,0 +1,382 @@
+@media screen {
+    body {
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+        margin: 0;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+
+    fieldset {
+        border: 0;
+    }
+
+    .DdsBar {
+        width: 100%;
+        min-height: 2.8em;
+        z-index: 1000;
+        background-color: maroon;
+        background-image: -webkit-linear-gradient(#800000, #CC0000);
+    }
+
+    .DdsPanel {
+        border-radius: 10px;
+        border-style: solid;
+        border-color: black;
+        border-width: 2px;
+        padding: 2px;
+        background-color: white;
+    }
+
+    .PanelTitle, .PanelTitle_OutputOnly {
+        font-size: 1em;
+        font-weight: bold;
+        color: White;
+        text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        white-space: nowrap;
+        vertical-align: middle;
+        text-align: center;
+        line-height: 2.2em;
+    }
+
+    .DdsRecord {
+        width: 480px; /* Visual Studio Designer workaround (to show phone width)*/
+        margin-left: 0px;
+        margin-top: 0px;
+        display: block;
+    }
+
+    .NavButton, .NavButtonIcon, .NavButtonSymbol {
+        width: auto;
+        height: 2.8em;
+        margin-top: 0.2em;
+        padding: 0 5px;
+        overflow: hidden;
+        line-height: 28px;
+        font-family: inherit;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap;
+        color: #fff;
+        background: rgb(37,141,200); /* Old browsers. VS Designer */
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #8ea4c1), color-stop(0.5, #5877a2), color-stop(0.5, #476999), color-stop(1, #4a6c9b));
+        background-image: -ms-linear-gradient(top, #B5C1C0 0%, #12A1F3 50%, #1230EF 100%);
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        border: 1px solid #45505d;
+        vertical-align: middle;
+    }
+
+    .NavButton { /* Short text should have a min. width to be touchable */
+        min-width: 4em;
+    }
+
+    .NavButtonSymbol { /* One-letter text should have a min. width to be touchable  (narrower than NavButton) */
+        min-width: 3em;
+    }
+
+    .SubmitButton {
+        min-width: 4em;
+        font-size: 0.8em;
+        font-weight: bold;
+        height: 2.8em;
+        border-radius: 6px;
+        border: 1px solid rgb(180,223,91);
+        color: #fff;
+        background: rgb(41,154,11); /* Old browsers. VS Designer */
+        background: -moz-linear-gradient(top, rgba(41,154,11,1) 0%, rgba(41,154,11,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(41,154,11,1)), color-stop(100%,rgba(41,154,11,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#299a0b', endColorstr='#299a0b',GradientType=0 ); /* IE6-9 */
+    }
+
+    .importantLabel {
+        font-size: 2em;
+    }
+
+    .DdsChartPanel {
+        margin-left: 0.2em;
+        margin-right: 0.2em;
+        border-color: black;
+        border-style: solid;
+        border-width: 0.1em;
+    }
+
+    .DdsList {
+        position: relative;
+        left: 0%;
+        font-weight: bold;
+    top: -2px;
+}
+
+    .DdsListList {
+        position: relative;
+        left: 2%;
+        width: 96%;
+        background-color: white;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: black;
+        border-width: 2px;
+        padding: 2px;
+    }
+
+    .DdsListList.table {
+        width: 100%;
+    }
+
+    .DdsListDetail {
+        font-weight: normal;
+    }
+
+    .DdsListImage {
+        width: 64px;
+        height: 64px;
+        background-image:url('/Themes/Current/Images/SubmitWait.gif');
+        background-repeat:no-repeat;
+    }
+	
+    .DdsImageChoose {
+        height: 2.5em;
+        font-size: 0.8em;
+        float:left;
+    }
+
+    .DdsImageUpload {
+        height: 2.5em;
+        float:right;
+        color: #fff;
+        border-radius: 6px;
+        border: 1px solid rgb(180,223,91);
+        background: rgb(41,154,11); /* Old browsers. VS Designer */
+        background: -moz-linear-gradient(top, rgba(41,154,11,1) 0%, rgba(41,154,11,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(41,154,11,1)), color-stop(100%,rgba(41,154,11,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#299a0b', endColorstr='#299a0b',GradientType=0 ); /* IE6-9 */
+    }
+
+    .DdsImageUpload:disabled {
+        border-radius: 6px;
+        float:right;
+        border: 1px solid gray;
+        color: gray;
+        background: none;
+    }
+
+    .DdsImage {
+        background-image:url('/Themes/Current/Images/SubmitWait.gif');
+        background-repeat:no-repeat;
+        margin-left: 5px;
+    }
+
+    .DdsListChevron {
+        padding-left: 8px;
+        padding-right: 2px;
+    }
+
+    .SignOnButton, .RightAlignButton {
+        float: right;
+    }
+
+    .SmallFont {
+        font-size: 0.8em;
+    }
+
+    .CenteredText {
+        text-align: center;
+        margin: 0;
+    }
+	
+    .DdsSignature {
+        width:95%; 
+        margin-left:2%;
+        border:1px dotted #C0C0C0;
+        -webkit-border-radius: 6px;
+    }
+
+    .DdsSignLink {
+        /*text-decoration: none; */
+        right: 2%;
+    }
+
+    .DdsSignEditor, .DdsSignEditorTitle {
+        background-color: #48474F;
+        color: white;
+        padding: 0;
+        margin: 0;
+        border-style: none;
+    }
+
+    .DdsSignEditorTitle {
+        font-size: 1em;
+        font-weight: bold;
+        border:none;
+        padding: 0;
+        margin-top: 0.5em;
+        text-align: center;
+    }
+
+    .DdsSignCancelButton, .DdsSignDoneButton, .DdsSignEraseButton {
+        margin: 1em 1em 1em 1em;
+        padding: 0;
+        font-size: 0.8em;
+        border:none;
+        color: white;
+        background-color: #48474F;
+    }
+
+    .DdsSignCancelButton {
+        color: orangered;
+    }
+
+    .DdsSignDoneButton {
+        font-weight: bold;
+        color: yellow;
+    }	
+}
+
+@media only screen and (max-device-width: 10000px) {	
+    /* Default – includes Desktop (except Visual Studio Web Form Designer) */
+
+    .DdsRecord {
+        width: 100%;
+    }
+}
+
+@media only screen and (device-width:239px ) and (device-height:427px), 
+    only screen and (device-width:282px ) and (device-height:349px), 
+    only screen and (device-width:295px ) and (device-height:427px), 
+    only screen and (device-width:320px ) and (device-height:480px), /* Apple iPhone */
+    only screen and (device-width:320px ) and (device-height:568px), /* Apple iPhone 5 */
+    only screen and (device-width:320px ) and (device-height:508px), 
+    only screen and (device-width:320px ) and (device-height:452px), 
+    only screen and (device-width:320px ) and (device-height:533px), 
+    only screen and (device-width:320px ) and (device-height:473px), 
+    only screen and (device-width:320px ) and (device-height:488px), 
+    only screen and (device-width:320px ) and (device-height:569px), 
+    only screen and (device-width:320px ) and (device-height:240px), 
+    only screen and (device-width:320px ) and (device-height:499px), 
+    only screen and (device-width:320px ) and (device-height:450px), 
+    only screen and (device-width:320px ) and (device-height:179px), 
+    only screen and (device-width:320px ) and (device-height:467px), 
+    only screen and (device-width:320px ) and (device-height:141px), 
+    only screen and (device-width:320px ) and (device-height:341px), 
+    only screen and (device-width:320px ) and (device-height:410px), 
+    only screen and (device-width:320px ) and (device-height:544px), 
+    only screen and (device-width:320px ) and (device-height:401px), 
+    only screen and (device-width:356px ) and (device-height:206px), 
+    only screen and (device-width:360px ) and (device-height:623px), 
+    only screen and (device-width:360px ) and (device-height:640px), 
+    only screen and (device-width:360px ) and (device-height:559px), 
+    only screen and (device-width:360px ) and (device-height:480px), 
+    only screen and (device-width:360px ) and (device-height:399px), 
+    only screen and (device-width:369px ) and (device-height:546px), 
+    only screen and (device-width:384px ) and (device-height:592px), 
+    only screen and (device-width:400px ) and (device-height:537px), 
+    only screen and (device-width:400px ) and (device-height:591px), 
+    only screen and (device-width:470px ) and (device-height:161px), 
+    only screen and (device-width:470px ) and (device-height:694px), 
+    only screen and (device-width:480px ) and (device-height:800px), 
+    only screen and (device-width:480px ) and (device-height:360px), 
+    only screen and (device-width:480px ) and (device-height:320px), 
+    only screen and (device-width:480px ) and (device-height:295px), 
+    only screen and (device-width:533px ) and (device-height:239px), 
+    only screen and (device-width:533px ) and (device-height:320px), 
+    only screen and (device-width:533px ) and (device-height:295px), 
+    only screen and (device-width:534px ) and (device-height:295px), 
+    only screen and (device-width:534px ) and (device-height:320px), 
+    only screen and (device-width:540px ) and (device-height:960px), 
+    only screen and (device-width:569px ) and (device-height:239px), 
+    only screen and (device-width:569px ) and (device-height:320px), 
+    only screen and (device-width:569px ) and (device-height:295px), 
+    only screen and (device-width:601px ) and (device-height:906px) and (orientation:portrait), /* Google Nexus 7 Chrome Portarit */
+    only screen and (device-width:962px ) and (device-height:553px) and (orientation:landscape), /* Google Nexus 7 Chrome Landscape */
+    only screen and (device-width:600px ) and (device-height:1024px), 
+    only screen and (device-width:603px ) and (device-height:909px), 
+    only screen and (device-width:640px ) and (device-height:960px), 
+    only screen and (device-width:640px ) and (device-height:279px), 
+    only screen and (device-width:640px ) and (device-height:480px), 
+    only screen and (device-width:640px ) and (device-height:360px), 
+    only screen and (device-width:683px ) and (device-height:334px), 
+    only screen and (device-width:720px ) and (device-height:1280px) and (orientation:portrait), /* Samsung Galaxy Note 2 Portrait */
+    only screen and (device-width:720px ) and (device-height:1184px), 
+    only screen and (device-width:768px ) and (device-height:1280px), /* Nokia Lumina 920 */
+    only screen and (device-width:752px ) and (device-height:412px), 
+    only screen and (device-width:800px ) and (device-height:1280px), /* Google Nexus 7 Dolphin */
+    only screen and (device-width:800px ) and (device-height:1232px), 
+    only screen and (device-width:800px ) and (device-height:1205px), 
+    only screen and (device-width:800px ) and (device-height:480px), 
+    only screen and (device-width:960px ) and (device-height:540px), 
+    only screen and (device-width:961px ) and (device-height:552px), 
+    only screen and (device-width:966px ) and (device-height:555px), 
+    only screen and (device-width:1280px) and (device-height:736px) and (orientation:landscape), /* Google Nexus 7 Firefox Landscape */
+    only screen and (device-width:1280px) and (device-height:720px) and (orientation:landscape) { /* Samsung Galaxy Note 2 Landscape */
+    /* Phone size */
+
+	/* Add any  overrides you want specific for phones */
+}
+
+@media only screen and (device-width:768px) and (device-height:1024px), /* Apple iPad */
+    only screen and (device-width:800px) and (device-height:1232px) and (orientation:portrait), /* Asus Transformer Pad TF300T - Portrait */
+    only screen and (device-width:1280px) and (device-height:752px) and (orientation:landscape), /* Asus Transformer Pad TF300T - Landscape */
+    only screen and (device-width:1280px) and (device-height:800px), 
+    only screen and (device-width:1280px) and (device-height:736px) {
+    /* Tablet size */
+
+    .DdsBar {
+        min-height: 3.8em; /* Override from 2.8em; */
+    }
+
+    .PanelTitle, .PanelTitle_OutputOnly {
+        font-size: 1.5em; /* Override from 1em; */
+        line-height: 2.7em; /* Override from 2.2em; */
+    }
+
+    .NavButton, .NavButtonIcon, .NavButtonSymbol {
+        height: 3.3em;      /* Override from 2.8em; */
+        margin-top: 0.7em;  /* Override from 0.2em; */
+    }
+
+    .NavButton { /* Short text should have a min. width to be touchable */
+        min-width: 4.5em; /* Override from 4em; */
+    }
+
+    .NavButtonSymbol { /* One-letter text should have a min. width to be touchable  (narrower than NavButton) */
+        min-width: 3.5em; /* Override from 3em; */
+    }
+
+    .SubmitButton {
+        min-width: 4.5em; /* Override from 4em; */
+        font-size: 1.3em; /* Override from 0.8em; */
+        height: 3.3em;    /* Override from 2.8em; */
+    }
+
+    .DdsCharField, .DdsCharField_Link, .DdsCharField_Error, .DdsCharField_OutputOnly, .DdsCharField_Right, .DdsCharField_Right_Error, .DdsCharField_Right_OutputOnly {
+        font-size: 1.5em; /* Override from 1.0em;*/
+        height: 2.0em;    /* Override from 1.5em; */
+        padding: 2px;
+    }
+
+    .DdsDecField , .DdsDecField_OutputOnly  {
+        font-size: 1.5em; /* Override from 1.0em; */
+        height: 2.0em; /* Override from 1.5em; */
+        padding: 2px;
+    }
+
+    .DdsConstant, .DdsConstant_Right  {
+        font-size: 1.5em; /* Override from 1.0em; */
+        height: 2.0em;    /* Override from 1.5em; */
+    }
+}
+

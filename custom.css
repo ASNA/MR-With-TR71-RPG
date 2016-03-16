@@ -1,0 +1,50 @@
+﻿/* Custom CSS to make the app look more modern. */
+
+.DdsListList {
+    border-radius: 0;
+    border-width: 1px;
+    border-color: silver;
+}
+
+svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.NavButton {
+    background-image: none;
+    background-color: black;
+    border-radius: 0;
+    border-color: gray;
+}
+
+.left-most-button {
+    margin-left: 1.5em;
+    margin-bottom: .5em;
+    margin-top: 1em;
+
+}
+
+.DdsBar {
+    background-image: none;
+    background-color: #004477;
+}
+
+div.DdsListList table tr:nth-child(odd) {
+    background-color: #e8e8e8;
+}
+
+div.DdsListList table {
+    border-spacing: 0;
+    border-collapse: separate;
+}
+
+.small-text {
+    font-size: 80%;
+}
+
+.DdsCharField, .DdsCharField_Link, .DdsCharField_Error, .DdsCharField_OutputOnly, .DdsCharField_Right, .DdsCharField_Right_Error, .DdsCharField_Right_OutputOnly {
+        -webkit-border-radius:0 !important;
+}
+
+

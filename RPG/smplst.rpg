@@ -1,0 +1,191 @@
+        Ctl-Opt Option(*srcstmt) Dftactgrp(*No) ActGrp('rpmobile');
+
+        Dcl-F smplst WORKSTN Infds(infds)
+                             Handler('MOBILERPG')
+                             SFile(CSTSBF:CSTRRN)
+                             SFile(MAPSBF:CSTRRN);
+
+        Dcl-F CustomerL2 Disk(*ext) Usage(*Input) Keyed
+                         Rename(RCMMASTER:RCUSTL2);
+
+        Dcl-F CustomerL1 Disk(*ext) Usage(*Update) Keyed
+                         Rename(RCMMASTER:RCUSTL1);
+
+        Dcl-DS CustL2Key LikeRec(RCUSTL2:*Key);
+        Dcl-DS TopRow    LikeRec(RCUSTL2:*Key);
+
+        Dcl-S CstRRN   Zoned(4:0);
+        Dcl-C MAXROWS  Const(6);
+
+        /copy RPMRDATA/QRPGLESRC,KEYMAPF
+
+        Dcl-DS Action Qualified;
+            Exit           Char(1) Inz(F03);
+            Cancel         Char(1) Inz(F02);
+            Back           Char(1) Inz(F02);
+            ItemTapped     Char(1) Inz(F01);
+            ChevronTapped  Char(1) Inz(F04);
+            More           Char(1) Inz(F05);
+            Backward       Char(1) Inz(F06);
+            Find           Char(1) Inz(F07);
+            OK             Char(1) Inz(F08);
+            Display        Char(1) Inz(F09);
+            Remove         Char(1) Inz(F10);
+        End-DS;
+
+        SetLL *LoVal CustomerL2;
+        LoadCstLst();
+        ExFmt CUSTLIST;
+
+        Dow ActionRequest <> Action.Exit;
+            Select;
+                When CurrentFormat = 'CUSTLIST';
+                     Select;
+                         When ActionRequest = Action.ItemTapped;
+                             ReadC CSTSBF;
+                             If ReadCustById(%INT(CSTVAL));
+                                // Add code here for customer not found.
+                             EndIf;
+                             ExFmt CUSTINFO;
+
+                         When ActionRequest = Action.ChevronTapped;
+                             ReadC CSTSBF;
+                             If ReadCustById(%INT(CSTVAL));
+                                // Add code here for customer not found.
+                             EndIf;
+                             CSZ = %TRIM(CMADDR1) + ', ' +
+                                   %TRIM(CMCITY) + ', ' +
+                                   CMState;
+                             ShowMap(CSZ);
+                             ExFmt CUSTMAP;
+
+                          When ActionRequest = Action.More;
+                             LoadCstLst();
+                             ExFmt CUSTLIST;
+
+                          Other;
+                             ExFmt CUSTLIST;
+                     EndSl;
+
+               When CurrentFormat = 'CUSTINFO';
+                    Select;
+                        When ActionRequest = Action.OK;
+                            UpdateCust();
+                            RefreshCustList(CMName:
+                                            CMCustNo);
+                            ExFmt CUSTLIST;
+
+                        When ActionRequest = Action.Cancel;
+                            RefreshCustList(TopRow.CMName:
+                                            TopRow.CMCustNo);
+                            ExFmt CUSTLIST;
+
+                        When ActionRequest = Action.Back;
+                            SetLL *LoVal CustomerL2;
+                            LoadCstLst();
+                            ExFmt CUSTLIST;
+
+                        Other;
+                            SetLL *LoVal CustomerL2;
+                            LoadCstLst();
+                            ExFmt CUSTLIST;
+                    EndSl;
+
+               When CurrentFormat = 'CUSTMAP';
+                    Select;
+                        When ActionRequest = Action.OK OR
+                             ActionRequest = Action.Back;
+                            RefreshCustList(CMName:
+                                            CMCustNo);
+                            ExFmt CUSTLIST;
+                    EndSl;
+
+            EndSl;
+        EndDo;
+
+        *InLR = *On;
+        Return;
+
+        Dcl-Proc UpdateCust;
+            Update RCustL1;
+        End-Proc;
+
+        Dcl-Proc LoadCstLst;
+            Dcl-S RowCount Packed(12:0);
+
+            *IN99 = *On;
+            Write CSTCTRL;
+            CstRRN = 0;
+            RowCount = 0;
+
+            DoW (RowCount < MAXROWS);
+                Read CustomerL2;
+                If NOT %EOF;
+                    If RowCount = 0;
+                        TopRow.CMName = CMName;
+                        TopRow.CMCustNo = CMCustNo;
+                    EndIf;
+                    RowCount = RowCount + 1;
+                    CstRRN = CstRRN + 1;
+                    CSTSEL = '0';
+                    CSTTXT = CMName;
+                    CSTDTL = %Trim(CMCITY) + ', ' + CMSTATE;
+                    CSTVAL = %CHAR(CMCustNO);
+                    Write CSTSBF;
+                Else;
+                    Leave;
+                EndIf;
+            EndDo;
+
+            *In99 = *Off;
+            Write CSTCTRL;
+            PeekForEOF();
+        End-Proc;
+
+        Dcl-Proc PeekForEOF;
+            Read CustomerL2;
+            If NOT %EOF;
+               Eval MOREROWS = 'More...';
+               ReadP CustomerL2;
+            Else;
+               Eval MOREROWS = 'No More';
+               SETLL *LOVAL CustomerL2;
+            EndIf;
+        End-Proc;
+
+        Dcl-Proc ReadCustById;
+            Dcl-Pi *N Ind;
+                CustNo Packed(9:0) CONST;
+            End-Pi;
+
+            Chain CustNo CustomerL1;
+            Return %EOF();
+        End-Proc;
+
+        Dcl-Proc RefreshCustList;
+            Dcl-Pi *N;
+                Name Like(CMName) CONST;
+                CustNo Like(CMCustNo) CONST;
+            End-Pi;
+
+            CustL2Key.CMName = Name;
+            CustL2Key.CMCustNo = CustNo;
+            SetLL %KDS(CustL2Key) CustomerL2;
+            LoadCstLst();
+        End-Proc;
+
+        Dcl-Proc ShowMap;
+            Dcl-Pi *N;
+                Address Char(60) CONST;
+            End-Pi;
+
+            *IN99 = *On;
+            Write MAPCTRL;
+
+            CstRRN = 1;
+            Location = Address;
+            Write MAPSBF;
+
+            *In99 = *Off;
+            Write MAPCTRL;
+        End-Proc;

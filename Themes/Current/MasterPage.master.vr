@@ -1,0 +1,13 @@
+Using System
+Using System.Data
+Using System.Configuration
+Using System.Web
+Using System.Web.Security
+Using System.Web.UI
+Using System.Web.UI.WebControls
+Using System.Web.UI.WebControls.WebParts
+Using System.Web.UI.HtmlControls
+
+BegClass MasterPage Access(*Public) Partial(*Yes) Extends(System.Web.UI.MasterPage)
+
+EndClass

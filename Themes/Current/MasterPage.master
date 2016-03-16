@@ -1,0 +1,47 @@
+﻿<%@ Master Language="AVR" AutoEventWireup="false" CodeFile="MasterPage.master.vr" Inherits="MasterPage" %>
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head runat="server">
+    <%-- Microsoft IE stuff  --%>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mr Hello</title>
+
+    <%-- Apple stuff  --%>
+    <meta name="viewport" content="user-scalable=0, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon" href="~/Themes/Current/Images/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Themes/Current/Images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Themes/Current/Images/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Themes/Current/Images/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-startup-image" href="~/Themes/Current/Images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" >
+    <link rel="apple-touch-startup-image" href="~/Themes/Current/Images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" >
+    <link rel="apple-touch-startup-image" href="~/Themes/Current/Images/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" >
+    <link rel="apple-touch-startup-image" href="~/Themes/Current/Images/apple-touch-startup-image-768x1004.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" />
+    <link rel="apple-touch-startup-image" href="~/Themes/Current/Images/apple-touch-startup-image-1024x748.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" />
+    <link rel="apple-touch-startup-image" href="~/Themes/Current/Images/apple-touch-startup-image-1536x2008.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio: 2)"  />
+    <link rel="apple-touch-startup-image" href="~/Themes/Current/Images/apple-touch-startup-image-2048x1496.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 2)"  />
+
+    <asp:ContentPlaceHolder runat="server" id="HeaderPH" />
+    <link rel="shortcut icon" href="~/Themes/Current/Images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="~/Themes/Current/Styles/Framework.css" />
+    <link rel="stylesheet" type="text/css" href="~/Themes/Current/Styles/Theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Custom.css" />
+</head>
+
+<body>
+
+<form id="form1" runat="server" enctype="multipart/form-data">
+   <asp:ContentPlaceHolder ID="AppBody" runat="server" />
+</form>
+
+    <%-- 
+         jQuery is expensive for Mobile Apps. Load only if it cannot be avoided.
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    --%>
+    <asp:ContentPlaceHolder ID="PageScriptPH" runat="server" />
+</body>
+</html>
